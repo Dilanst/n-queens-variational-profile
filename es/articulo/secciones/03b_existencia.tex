@@ -1,0 +1,121 @@
+\emph{Paso 6: la ecuación.} Por el paso~5, $\int\nu^*(\theta-W)=0$ con integrando $\ge0$; luego
+$\nu^*(\theta-W)=0$ en casi todo punto y, como $\nu^*>0$, $W=\theta$. Es decir,
+$\nu^*=e^{-\theta}\,\Pi[\nu^*]$.
+
+\emph{Paso 7: las cotas.} Por la ecuación y el Lema~\ref{lem:fubini}, para casi todo $r\in I_R$,
+\[
+ m^*_R(r)=\lambda\,u^*_R(r)\int_0^1u^*_C(c)\,u^*_D(r-c)\,u^*_A(r+c)\,dc\ \le\ \lambda\bigl(1-m^*_R(r)\bigr),
+\]
+de donde $m^*_R\le\lambda/(1+\lambda)$. Para las otras familias es igual: la integral recorre una
+fibra de longitud paramétrica $\le1$. Entonces cada factor de $\Pi[\nu^*]$ está entre
+$1/(1+\lambda)$ y $1$, lo que da $\lambda(1+\lambda)^{-4}\le\nu^*\le\lambda$. Integrando la ecuación,
+$\rho=\lambda\int\Pi[\nu^*]$.
+
+\emph{Paso 8: supergradiente.} Sean $\rho'\in(0,1)$, $\nu'\in\cA_{\rho'}$ con $s[\nu']>-\infty$ y
+$\varphi(t)=s[\nu^*+t(\nu'-\nu^*)]$, cóncava en $[0,1]$. Por el paso~7, $\log\nu^*$ y los
+$\log u^*_f$ están acotados, así que el cálculo del paso~2 vale con todos los términos finitos.
+Ahora las masas difieren, pero las constantes vuelven a cancelarse: $-(\rho'-\rho)$ de la entropía,
+$+4(\rho'-\rho)$ de las cuatro familias y $-3(\rho'-\rho)$ del término $-3\rho$. Queda
+$\varphi'(0^+)=\int(\nu'-\nu^*)W=\theta(\rho'-\rho)$, y $s[\nu']=\varphi(1)\le\varphi(0)+\varphi'(0^+)$.
+Tomando el supremo en $\nu'$ sale la desigualdad de~(d). Una función que en cada punto queda por
+debajo de una recta que la toca es cóncava. Si $\rho_1<\rho_2$, sumando las desigualdades en $\rho_1$
+y en $\rho_2$ queda $(\theta(\rho_1)-\theta(\rho_2))(\rho_2-\rho_1)\ge0$.
+
+\emph{Paso 9: la derivada.} Si $|\sigma-1|$ es pequeño, $\sigma\nu^*\in\cA_{\sigma\rho}$, porque
+sus proyecciones son $\le\sigma\lambda/(1+\lambda)<1$. La función
+\[
+ \psi(\sigma)=s[\sigma\nu^*]=-3\sigma\rho-\sigma\int\nu^*\log\nu^*-\sigma\rho\log\sigma+\sum_f\int_{I_f}G(\sigma m^*_f)
+\]
+es de clase $C^2$ cerca de $\sigma=1$, con $\psi'(1)=\int\nu^*W=\rho\theta$ y
+$|\psi''(\sigma)|\le\rho/\sigma+\sum_f\int(m^*_f)^2/(1-\sigma m^*_f)$, que está acotada. Entonces
+$\sopt(\rho+h)\ge\psi(1+h/\rho)\ge\sopt(\rho)+\theta h-Ch^2$ para $|h|$ pequeño. Con el paso~8,
+$\sopt(\rho+h)=\sopt(\rho)+\theta h+O(h^2)$; así $\sopt$ es derivable con $\sopt{}'=\theta$. La
+derivada de una función cóncava y derivable en un intervalo abierto es continua.
+\end{proof}
+
+\begin{proposicion}\label{prop:concava}
+La función $\sopt$ es estrictamente cóncava en $(0,1)$. En consecuencia $\theta=\sopt{}'$ es continua
+y estrictamente decreciente, y $\lambda=e^{-\theta}$ es continua y estrictamente creciente. Además
+$\lambda(1+\lambda)^{-4}\le\rho\le\lambda/(1+\lambda)$; por lo tanto $\lambda(\rho)\to0$ cuando
+$\rho\to0$ y $\lambda(\rho)\ge\rho/(1-\rho)\to\infty$ cuando $\rho\to1$.
+\end{proposicion}
+
+\begin{proof}
+El funcional $s[\nu]=-3\int\nu-\int\nu\log\nu+\sum_f\int G(m_f)$ es cóncavo en la unión convexa de
+las clases $\cA_\rho$, y su parte entrópica es estrictamente cóncava. Si $\sopt$ fuera afín en
+$[\rho_1,\rho_2]$, la mezcla $\bar\nu=\frac12(\nu_{\rho_1}+\nu_{\rho_2})\in\cA_{(\rho_1+\rho_2)/2}$
+cumpliría $s[\bar\nu]>\frac12(\sopt(\rho_1)+\sopt(\rho_2))=\sopt(\frac{\rho_1+\rho_2}2)$, lo que es
+imposible. La derivada de una función estrictamente cóncava y derivable es estrictamente decreciente,
+y es continua por el Teorema~\ref{thm:max}(d). Integrando en el cuadrado las cotas de
+$\nu_\rho$ y de $m_R$ del Teorema~\ref{thm:max}(c) se obtiene
+$\lambda(1+\lambda)^{-4}\le\rho\le\lambda/(1+\lambda)$. Por la monotonía, $\lambda$ tiene límite cuando
+$\rho\to0$, y la primera desigualdad obliga a que sea cero; la segunda da $\lambda\ge\rho/(1-\rho)$.
+\end{proof}
+
+El Teorema~\ref{thm:max} y la Proposición~\ref{prop:concava} prueban el Teorema~\ref{thm:euler}
+para $\rho<1$; el caso $\rho=1$ se trata en la Proposición~\ref{prop:masa_uno}.
+
+\begin{lema}[Representación de las vacancias]\label{lem:vacancias}
+Sean $0<\rho<1$, $\nu=\nu_\rho$ y $\lambda=\lambda(\rho)$. Para cada familia $f$ y cada $t\in I_f$,
+sea $J_f(t)$ la integral, sobre la fibra de $f$ en $t$ y con la medida paramétrica, del producto de
+las vacancias de las otras tres familias; por ejemplo
+$J_R(r)=\int_0^1u_C(c)\,u_D(r-c)\,u_A(r+c)\,dc$. Entonces $0\le J_f\le1$, $J_f$ es continua en $I_f$ y
+\[
+ u_f=\frac1{1+\lambda J_f},\qquad m_f=\frac{\lambda J_f}{1+\lambda J_f}\qquad\text{en casi todo punto}.
+\]
+En lo que sigue usamos estas versiones continuas. En particular $u_f\ge1/(1+\lambda)$,
+$u_D(\pm1)=1$ y $u_A(0)=u_A(2)=1$.
+\end{lema}
+
+\begin{proof}
+La integral $J_f(t)$ está definida para todo $t$: en una fibra de $f$, la coordenada de cada otra
+familia es una función afín del parámetro con pendiente de módulo uno o dos, de modo que la
+composición no depende de los representantes. Por la ecuación de Euler y el Lema~\ref{lem:fubini},
+$m_f=\lambda u_fJ_f$ en casi todo punto, como en el paso~7, y basta despejar. Los factores están en $[0,1]$ y las fibras miden a lo sumo uno. Al
+pasar de $t$ a $t'$, la fibra cambia en un conjunto de longitud $\le2|t-t'|$ y los argumentos de los
+otros factores se trasladan en $|t-t'|$ (en las diagonales y antidiagonales, tras un cambio de
+variable de jacobiano $\frac12$). Con las $m_g$ extendidas por cero,
+\[
+ |J_f(t)-J_f(t')|\le2|t-t'|+2\sum_{g\ne f}\ \sup_{|h|\le|t-t'|}\|m_g(\cdot+h)-m_g\|_{L^1(\mathbb R)},
+\]
+que tiende a cero por la continuidad de las traslaciones en $L^1$. En los extremos de $I_D$ e $I_A$
+la fibra es un punto y $J_f=0$.
+\end{proof}
+
+\begin{proposicion}[Continuidad en la masa]\label{prop:continuidad}
+\begin{enumerate}[(a)]
+\item La aplicación $\rho\mapsto\nu_\rho$ es continua de $(0,1)$ en $L^1([0,1]^2)$, y
+$\rho\mapsto m_{f,\rho}$ es continua de $(0,1)$ en $L^2(I_f)$ para las cuatro familias.
+\item Para cada intervalo compacto $[\rho_1,\rho_2]\subset(0,1)$, la familia
+$\{m_{f,\rho}:\rho\in[\rho_1,\rho_2]\}$ de versiones continuas es equicontinua. Por lo tanto
+$(\rho,t)\mapsto m_{f,\rho}(t)$ es uniformemente continua en $[\rho_1,\rho_2]\times I_f$.
+\end{enumerate}
+\end{proposicion}
+
+\begin{proof}
+(a) Sean $\rho_j\to\rho$, $\nu_j=\nu_{\rho_j}$ y $\nu=\nu_\rho$. Como $\sopt$ es continua y los
+términos de línea están acotados, las entropías de las $\nu_j$ están acotadas, y toda subsucesión
+tiene otra que converge débilmente en $L^1$ a una $\bar\nu$ (paso~1). Por el Lema~\ref{lem:fubini},
+$\bar\nu\in\cA_\rho$: su masa es $\rho$ y $\int m_f[\bar\nu]\,g=\lim\int m_f[\nu_j]\,g\le\int g$
+para toda $g\ge0$ acotada. Cada término de $s$ (el término de masa, la entropía y los cuatro de línea)
+es cóncavo y semicontinuo superiormente en $L^1$, luego débilmente semicontinuo superiormente (lema
+de Mazur); así $s[\bar\nu]\ge\limsup s[\nu_j]=\sopt(\rho)$ y $\bar\nu=\nu$ por unicidad. Por lo tanto
+$\nu_j\to\nu$ débilmente y, como la suma converge y el límite superior de cada término es a lo sumo
+su valor en $\nu$, cada término converge. Con $H(z)=z\log z$ y $H''=1/z\ge1/(u+v)$ entre $u$ y $v$,
+\[
+ \frac{H(u)+H(v)}2-H\Bigl(\frac{u+v}2\Bigr)\ge\frac{(u-v)^2}{8(u+v)}\qquad(u,v\ge0).
+\]
+Integrando con $u=\nu_j$, $v=\nu$ y usando la semicontinuidad inferior débil de $\int H$ en
+$\frac{\nu_j+\nu}2\to\nu$, se obtiene $\int\frac{(\nu_j-\nu)^2}{\nu_j+\nu}\to0$, y por Cauchy--Schwarz
+$\|\nu_j-\nu\|_1^2\le(\rho_j+\rho)\int\frac{(\nu_j-\nu)^2}{\nu_j+\nu}\to0$. Para las líneas,
+$G''\le-1$ en $[0,1)$ da
+$\int G(\frac{m_j+m}2)\ge\frac12\int G(m_j)+\frac12\int G(m)+\frac18\|m_j-m\|_2^2$, y la
+semicontinuidad superior en $\frac{m_j+m}2\to m$ da $\|m_j-m\|_2\to0$.
+
+(b) Por el Lema~\ref{lem:vacancias}, $m_{f,\rho}=\lambda J_f/(1+\lambda J_f)$, con la cota de
+continuidad de $J_f$ de su demostración. Por~(a), $\{m_{g,\rho}:\rho\in[\rho_1,\rho_2]\}$ es compacto
+en $L^1$ y por eso tiene un módulo de traslación uniforme (Fréchet--Kolmogorov~\cite{Brezis}). Como
+$\lambda(\rho)\le\lambda(\rho_2)$ y $z\mapsto\lambda z/(1+\lambda z)$ es $\lambda$-lipschitziana, la
+familia es equicontinua. Equicontinuidad, acotación y convergencia en $L^2$ dan convergencia
+uniforme (Arzelà--Ascoli), y de ahí la continuidad conjunta.
+\end{proof}

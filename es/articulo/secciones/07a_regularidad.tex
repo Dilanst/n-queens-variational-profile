@@ -1,0 +1,91 @@
+\section{Regularidad espacial}\label{sec:regularidad}
+
+Fijemos ahora la masa y desplacémonos de una línea a otra de la misma familia.
+Al trasladar una diagonal cambia también el segmento que queda dentro del cuadrado.
+Por eso la estimación debe controlar a la vez la variación de los factores y
+el efecto de los extremos del segmento.
+
+La regularidad se obtiene comparando el perfil con sus trasladados mediante la coercividad de una
+formulación dual, sin suponer derivadas del maximizador. En $\cH=\bigoplus_fL^2(I_f)$ usamos la
+norma $\|w\|_\cH^2=\sum_f\|w_f\|_{L^2(I_f)}^2$.
+
+\subsection{Actividad fija}
+
+Fijamos $\rho\in(0,1)$, $\lambda=\lambda(\rho)$, $\nu=\nu_\rho$ y las versiones continuas del
+Lema~\ref{lem:vacancias}: $u_f=1/(1+\lambda J_f(u))$, con $J_f(u)$ la integral sobre la fibra de
+$\prod_{g\ne f}u_g\circ\ell_g$, $0\le J_f\le1$ y $\kappa_\lambda:=(1+\lambda)^{-1}\le u_f\le1$. Para
+campos acotados $v_f=\log u_f$ definimos
+\begin{equation}\label{eq:dual}
+ \cE_\lambda(v)=\sum_f\int_{I_f}(e^{v_f}-v_f)+\lambda\int_{[0,1]^2}\exp\Bigl(\sum_fv_f\circ\ell_f\Bigr).
+\end{equation}
+Su gradiente en $\cH$ es $\cG_{\lambda,f}(v)=e^{v_f}-1+T_f\nu_v$, con
+$\nu_v=\lambda\exp(\sum_fv_f\circ\ell_f)$, y el campo del maximizador cumple $\cG_\lambda(v)=0$; no se
+impone masa a los campos de comparación, sino la actividad. Las derivaciones se justifican por
+acotación y convergencia dominada a lo largo de segmentos de campos acotados. Para una dirección
+acotada $w$,
+\begin{equation}\label{eq:hess}
+ \langle w,D\cG_\lambda(v)w\rangle=\sum_f\int e^{v_f}w_f^2+\int\nu_v\Bigl(\sum_fw_f\circ\ell_f\Bigr)^2 .
+\end{equation}
+
+\begin{lema}[Estabilidad]\label{lem:estabilidad}
+Sea $0<\kappa'\le1$. Si $u=e^v$ y $\widetilde u=e^{\widetilde v}$ toman valores en $[\kappa',1]$,
+entonces $\langle\cG_\lambda(\widetilde v)-\cG_\lambda(v),\widetilde v-v\rangle\ge\kappa'\|\widetilde v-v\|_\cH^2$.
+En particular, si $\cG_\lambda(v)=0$, entonces
+$\|\widetilde v-v\|_\cH\le\|\cG_\lambda(\widetilde v)\|_\cH/\kappa'$.
+\end{lema}
+
+\begin{proof}
+El segmento entre los logaritmos tiene exponenciales en $[\kappa',1]$. Se integra~\eqref{eq:hess} a lo
+largo de él y se aplica Cauchy--Schwarz.
+\end{proof}
+
+Extendemos $u_D$ y $u_A$ por uno fuera de $I_D$ e $I_A$ (el empalme es continuo por el
+Lema~\ref{lem:vacancias}) y escribimos $\widehat u_D,\widehat u_A$. Para $t\in\mathbb R$ sea
+\[
+ \widehat u_R(t)=\Bigl[1+\lambda\int_0^1u_C(c)\,\widehat u_D(t-c)\,\widehat u_A(t+c)\,dc\Bigr]^{-1},
+\]
+que coincide con $u_R$ en $[0,1]$ y toma valores en $[\kappa_\lambda,1]$. Para un desplazamiento $t$,
+el campo comparado, en los dominios originales, es
+\[
+ u_R^t(r)=\widehat u_R(r+t),\quad u_C^t=u_C,\quad u_D^t(d)=\widehat u_D(d+t),\quad
+ u_A^t(s)=\widehat u_A(s+t),\qquad v^t=\log u^t .
+\]
+
+\begin{lema}[Residuo de la traslación]\label{lem:residuo}
+Con $\eta^t=\cG_\lambda(v^t)$ se tiene $\eta^t_R=0$, $|\eta^t_C|,|\eta^t_D|,|\eta^t_A|\le2\lambda|t|$ y
+$\|\eta^t\|_\cH\le2\sqrt5\,\lambda|t|$. En consecuencia $\|v^t-v\|_\cH\le2\sqrt5\,\lambda(1+\lambda)|t|$.
+\end{lema}
+
+\begin{proof}
+La primera igualdad es la definición de $\widehat u_R$. En una columna $c$, se sustituye $r'=r+t$ en
+la integral de $u_R^t(r)\,u_D^t(r-c)\,u_A^t(r+c)$: los integrandos coinciden con los originales donde
+ambos dominios coinciden, y $r'\in[0,1]$ se cambia por $r'\in[t,1+t]$, cuya diferencia simétrica mide
+a lo sumo $2|t|$; los productos de vacancias tienen módulo a lo sumo uno. En la diagonal $d$, tras la
+misma sustitución, $c=r'-(d+t)$ y el integrando es $\widehat u_R(r')\,u_C(c)\,\widehat u_A(2r'-(d+t))$;
+el dominio trasladado exige $r'\in[t,1+t]$ y $c\in[0,1]$, y el original de la diagonal $d+t$ exige
+$r'\in[0,1]$ y $c\in[0,1]$, de modo que su diferencia está en las mismas dos tiras. Si $d+t\notin I_D$,
+la fibra original es vacía y $\widehat u_D(d+t)=1$, y el argumento sigue valiendo. Para $A$ se usa
+$c=s+t-r'$. El residuo es $\lambda u^t_f$ por la diferencia de las dos integrales, y su módulo es a lo
+sumo $2\lambda|t|$. Los dominios de $C$, $D$ y $A$ miden $1$, $2$ y $2$, lo que da la cota en $\cH$; la
+última desigualdad es el Lema~\ref{lem:estabilidad} con $\kappa'=\kappa_\lambda$.
+\end{proof}
+
+Para la traslación en la segunda coordenada se intercambian $R$ y $C$: se define $\widehat u_C$ por su
+ecuación y se comparan $u_R(r)$, $\widehat u_C(c+t)$, $\widehat u_D(d-t)$ y $\widehat u_A(s+t)$; la
+componente $C$ del residuo es nula y las otras tres cumplen las mismas cotas.
+
+Para pasar de $L^2$ a diferencias puntuales: si $u=e^v$ y $\widetilde u=e^{\widetilde v}$ toman valores en
+$[0,1]$, telescopar el producto de tres factores en una fibra da
+\begin{equation}\label{eq:conversion}
+ |J_f(\widetilde u)-J_f(u)|\le\sum_{g\ne f}\|\widetilde u_g-u_g\|_{L^2(I_g)}\le\sqrt3\,\|\widetilde v-v\|_\cH ,
+\end{equation}
+porque en una fibra de $f$ el parámetro $\ell_g$, $g\ne f$, avanza con pendiente de módulo uno o dos
+(nunca cero); Cauchy--Schwarz y la longitud paramétrica $\le1$ dan la primera desigualdad, y
+$|e^\alpha-e^\beta|\le|\alpha-\beta|$ para $\alpha,\beta\le0$ la segunda. Para el campo trasladado,
+$u^t_f(1+\lambda J_f(u^t))=1+\eta^t_f$; comparando con $u_f(1+\lambda J_f(u))=1$, con denominadores
+$\ge1$, el Lema~\ref{lem:residuo} y~\eqref{eq:conversion},
+\begin{equation}\label{eq:traslacion}
+ |u^t_f-u_f|\le2\lambda|t|+2\sqrt{15}\,\lambda^2(1+\lambda)|t|\le L(\lambda)|t|,\qquad
+ L(\lambda)=2\lambda+8\lambda^2(1+\lambda).
+\end{equation}
+La traslación de filas controla $R$, $D$ y $A$, y la de columnas controla $C$.

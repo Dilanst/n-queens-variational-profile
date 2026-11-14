@@ -1,0 +1,55 @@
+\section{Analiticidad en el interior y en el extremo diluido}\label{sec:analiticidad}
+
+Ya conocemos la rama reescalada cerca de $x=0$. Para recorrer toda la familia
+queda por estudiar su dependencia respecto de la masa en el interior y cerca del
+tablero vacío, el \emph{extremo diluido}, que corresponde a $\rho=0$ o, equivalentemente, a $x=1$.
+
+Por la Proposición~\ref{prop:concava}, $\rho\mapsto\lambda(\rho)$ es una biyección continua y
+creciente de $(0,1)$ sobre $(0,\infty)$; escribimos $\rho(\lambda)$ para su inversa y $X$ para el
+espacio de la Sección~\ref{sec:limite}.
+
+\begin{proposicion}[Interior]\label{prop:interior}
+Las aplicaciones $\rho\mapsto\lambda(\rho)$ y $\rho\mapsto(\log u_R,\log u_C,\log u_D,\log u_A)\in X$
+son analíticas reales en $(0,1)$. Con $\tau=\log\lambda$, $h_f=\partial_\tau\log u_f$ y
+$w=1+\sum_fh_f\circ\ell_f$,
+\begin{equation}\label{eq:derivada_actividad}
+ \frac{d\rho}{d\log\lambda}=\int_{[0,1]^2}\nu\,w^2+\sum_f\int_{I_f}u_fh_f^2>0 .
+\end{equation}
+\end{proposicion}
+
+\begin{proof}
+Fijamos $\tau_0=\log\lambda_0$ y usamos las incógnitas $v=(\log u_f)_f\in X$ y el sistema
+$u_f+T_f\bigl(e^\tau\prod_gu_g\circ\ell_g\bigr)-1=0$, que el maximizador de actividad $\lambda_0$
+satisface. Su derivada respecto de $v$ es $h\mapsto\bigl(u_fh_f+T_f(\nu\sum_gh_g\circ\ell_g)\bigr)_f$; la
+parte propia es $(u_f+m_f)h_f=h_f$, y los operadores cruzados son compactos como en la demostración
+del Teorema~\ref{thm:rama}. Si $h$ está en el núcleo y $w=\sum_gh_g\circ\ell_g$, multiplicar la
+componente $f$ por $h_f$, integrar y sumar da $\int\nu w^2+\sum_f\int u_fh_f^2=0$; por positividad el
+núcleo es trivial. Con índice cero, el teorema analítico de la función implícita da una rama analítica
+$\tau\mapsto v(\tau)$ cerca de $\tau_0$. Por la Proposición~\ref{prop:continuidad}(b), la continuidad de
+$\rho(\lambda)$ y la cota $u_f\ge1/(1+\lambda)$, los campos de los maximizadores dependen
+continuamente de $\lambda$ en $X$; para $\lambda$ cerca de $\lambda_0$ están en el entorno de unicidad
+y coinciden con la rama.
+
+Derivando el sistema a lo largo de la rama, con $h_f=dv_f/d\tau$ y $w=1+\sum_gh_g\circ\ell_g$, se tiene
+$\dot\nu=\nu w$ y $u_fh_f+T_f(\nu w)=0$. Así
+$\int\nu w^2=\int\nu w+\sum_f\int T_f(\nu w)\,h_f=\frac{d\rho}{d\tau}-\sum_f\int u_fh_f^2$, que
+es~\eqref{eq:derivada_actividad}. La desigualdad es estricta: si el miembro derecho se anulara, sería $h=0$ y a la vez
+$w=0$, incompatible con $w=1+\sum_fh_f\circ\ell_f$. La inversión analítica pasa de $\tau$ a $\rho$.
+\end{proof}
+
+\begin{proposicion}[Extremo diluido]\label{prop:diluido}
+Existe una función $A$, analítica real en un entorno de $0$ con $A(0)=1$, tal que
+$\lambda(\rho)=\rho\,A(\rho)$ para $\rho>0$ pequeño. Las vacancias dependen analíticamente de $\rho$
+en $X$ cerca de $\rho=0$, con $u_f\equiv1$ en $\rho=0$.
+\end{proposicion}
+
+\begin{proof}
+En $\lambda=0$ usamos directamente las incógnitas $u_f\in C(I_f)$. El sistema
+$u_f+T_f(\lambda\prod_gu_g\circ\ell_g)-1=0$ tiene la solución $u_f\equiv1$ en $\lambda=0$, con derivada
+igual a la identidad. El teorema de la función implícita da una rama analítica $\lambda\mapsto u(\lambda)$
+para $|\lambda|$ pequeño, con $\rho(\lambda)=\lambda\int\prod_gu_g(\lambda)\circ\ell_g=\lambda+O(\lambda^2)$,
+porque el cuadrado tiene área uno. Los maximizadores coinciden con la rama: cuando $\rho\to0$,
+$\lambda\to0$ (Proposición~\ref{prop:concava}) y $m_f\le\lambda/(1+\lambda)\to0$ uniformemente
+(Teorema~\ref{thm:max}), así que $u_f\to1$ uniformemente. Como $\rho'(0)=1$, la inversión analítica de
+$\rho(\lambda)$ da $\lambda=\rho A(\rho)$ con $A$ analítica y $A(0)=1$.
+\end{proof}

@@ -1,0 +1,59 @@
+\begin{teorema}[Regularidad a actividad fija]\label{thm:lip_interior}
+Sean $\rho\in(0,1)$, $x=1-\rho$ y $\lambda=\lambda(\rho)$. Las versiones continuas de las vacancias,
+las proyecciones y el maximizador cumplen
+\[
+ \Lip(u_f),\ \Lip(m_f)\le L(\lambda),\qquad \|\nu_\rho\|_\infty\le\lambda,\qquad
+ \Lip_\infty(\nu_\rho)\le6\lambda L(\lambda),
+\]
+y, para $\Theta_x(r,c)=r_R(r)\,r_C(c)=u_R(r)u_C(c)/x^2$,
+\[
+ \|\Theta_x\|_\infty\le x^{-2},\qquad \Lip_\infty(\Theta_x)\le2L(\lambda)/x^2 ,
+\]
+donde $\Lip_\infty$ se refiere a la norma del máximo en el cuadrado. Las cotas incluyen todo el borde
+y son uniformes en cada compacto de $(0,1)$.
+\end{teorema}
+
+\begin{proof}
+La estimación~\eqref{eq:traslacion} da la primera cota para cualesquiera dos puntos del mismo intervalo.
+Telescopar los cuatro factores de la ecuación de Euler cuesta
+$\lambda L(\lambda)(|\Delta r|+|\Delta c|+|\Delta r-\Delta c|+|\Delta r+\Delta c|)\le6\lambda L(\lambda)\|\Delta(r,c)\|_\infty$,
+y el producto de los dos factores de $\Theta_x$ cuesta $2L(\lambda)\|\Delta(r,c)\|_\infty/x^2$. En un
+compacto de masas basta sustituir $\lambda$ por su máximo y $x$ por su mínimo, porque las cotas son
+monótonas y $\lambda$ es creciente.
+\end{proof}
+
+El Teorema~\ref{thm:lip_interior} es la parte~(a) del Teorema~\ref{thm:lipschitz_intro}.
+
+\begin{observacion}[Degeneración en los extremos]\label{obs:degeneracion}
+Como $\lambda=b/x^2\le b_+/x^2$ para $x\le\frac12$ (Proposición~\ref{prop:cotas}), las constantes del
+Teorema~\ref{thm:lip_interior} son $O(x^{-6})$ para las vacancias y $O(x^{-8})$ para $\nu$ y $\Theta_x$
+cuando $x\downarrow0$; cuando $\rho\downarrow0$, $\lambda\le\rho(1+\lambda)^4=O(\rho)$ (Proposición~\ref{prop:concava}) da $O(\rho)$, $O(\rho^2)$ y $O(\rho)$,
+respectivamente. Son cotas superiores, no exponentes óptimos. No se afirma regularidad $C^1$ global:
+los dominios diagonales cambian de geometría y una cota Lipschitz no excluye posibles puntos angulosos.
+\end{observacion}
+
+\begin{proposicion}[Dependencia de la actividad]\label{prop:actividad}
+Sean $0<\lambda,\lambda'\le\Lambda$ y $v_\lambda,v_{\lambda'}$ los campos de los maximizadores
+correspondientes. Entonces
+\begin{gather*}
+ \|v_\lambda-v_{\lambda'}\|_\cH\le\sqrt6\,(1+\Lambda)|\lambda-\lambda'|,\qquad
+ \|u_{f,\lambda}-u_{f,\lambda'}\|_\infty\le C_\Lambda|\lambda-\lambda'|,\\
+ \|\nu_\lambda-\nu_{\lambda'}\|_\infty\le(1+4\Lambda C_\Lambda)|\lambda-\lambda'|,
+\end{gather*}
+con $C_\Lambda=1+5\Lambda(1+\Lambda)$.
+\end{proposicion}
+
+\begin{proof}
+Las vacancias de ambos están en $[(1+\Lambda)^{-1},1]$. Como $\cG_{\lambda'}(v_{\lambda'})=0$,
+$\cG_{\lambda,f}(v_{\lambda'})=(\lambda-\lambda')\,u_{f,\lambda'}J_f(u_{\lambda'})$, cuya norma en $\cH$
+es a lo sumo $\sqrt6|\lambda-\lambda'|$, porque las longitudes de los cuatro dominios suman seis. El
+Lema~\ref{lem:estabilidad} con $\kappa'=(1+\Lambda)^{-1}$ da la primera cota. Comparando
+$u_{f,\lambda}=1/(1+\lambda J_f(u_\lambda))$ con su versión en $\lambda'$ y usando~\eqref{eq:conversion},
+$\|u_{f,\lambda}-u_{f,\lambda'}\|_\infty\le|\lambda-\lambda'|+\Lambda\sqrt3\,\|v_\lambda-v_{\lambda'}\|_\cH\le C_\Lambda|\lambda-\lambda'|$.
+La ecuación de Euler y el producto de cuatro factores dan la última cota.
+\end{proof}
+
+En particular, como $\lambda$ es continua, $x\mapsto(\nu_{1-x},u_{R,x},u_{C,x},u_{D,x},u_{A,x})$ es
+continua en norma uniforme en $(0,1)$, y para $x,y$ en un compacto con mínimo $x_*>0$ y
+$\Lambda=\max\lambda$,
+$\|\Theta_x-\Theta_y\|_\infty\le\frac{2C_\Lambda}{x_*^2}|\lambda(1-x)-\lambda(1-y)|+\frac2{x_*^3}|x-y|$.

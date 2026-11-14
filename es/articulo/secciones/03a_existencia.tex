@@ -1,0 +1,75 @@
+\section{Existencia, unicidad y ecuación de Euler}\label{sec:euler}
+
+A masa fija, tanto la densidad como sus cuatro proyecciones intervienen en la entropía.
+La concavidad estricta del término $-\int\nu\log\nu$ asegura que hay a lo sumo un óptimo. Para averiguar su forma,
+primero justificamos que existe y que ninguna capacidad se satura en un conjunto
+de medida positiva. Entonces podemos variar la densidad y deducir la ecuación de Euler.
+
+\begin{teorema}\label{thm:max}
+Sea $0<\rho<1$.
+\begin{enumerate}[(a)]
+\item $s$ alcanza su supremo en $\cA_\rho$ en una única densidad $\nu_\rho$.
+\item Existe $\theta=\theta(\rho)\in\mathbb R$ tal que $\nu_\rho=e^{-\theta}\,\Pi[\nu_\rho]$ en casi todo
+punto.
+\item Sea $\lambda=e^{-\theta}$ (la \emph{actividad}). Las cuatro proyecciones de $\nu_\rho$ son $\le\lambda/(1+\lambda)$, se
+tiene $\lambda(1+\lambda)^{-4}\le\nu_\rho\le\lambda$, y $\rho=\lambda\int\Pi[\nu_\rho]$.
+\item Para todo $\rho'\in(0,1)$, $\sopt(\rho')\le\sopt(\rho)+\theta(\rho)(\rho'-\rho)$. En
+particular $\sopt$ es cóncava, $\theta$ es no creciente y $\lambda$ no decreciente. Además $\sopt$ es
+derivable, con $\sopt{}'=\theta$, y $\theta$ es continua.
+\end{enumerate}
+\end{teorema}
+
+\begin{proof}
+Escribimos $\nu^*=\nu_\rho$ y $m^*_f$, $u^*_f$ para sus proyecciones y vacancias.
+
+\emph{Paso 1: existencia y unicidad.} Sea $(\nu_k)\subset\cA_\rho$ con $s[\nu_k]\to\sopt(\rho)$.
+Como los términos de línea están acotados por $6/e$, $\int\nu_k\log\nu_k$ está acotada; por los
+criterios de de la Vallée-Poussin y Dunford--Pettis~\cite{Bogachev}, una subsucesión converge
+débilmente en $L^1$ a una $\nu^*$. El conjunto $\cA_\rho$ es convexo y cerrado en $L^1$, luego
+débilmente cerrado, y $\nu^*\in\cA_\rho$. El funcional $s$ es cóncavo y semicontinuo superiormente en
+$L^1$: la entropía por Fatou, pues $z\log z\ge-1/e$, y los términos de línea son continuos por
+convergencia dominada, pues $G$ es continua y acotada. Por el lema de Mazur su hipógrafo es
+débilmente cerrado~\cite{Brezis}, así que $s[\nu^*]\ge\limsup s[\nu_k]=\sopt(\rho)$. La unicidad sale
+de la concavidad estricta de la entropía.
+
+\emph{Paso 2: derivadas laterales.} Sea $\nu\in\cA_\rho$ con $s[\nu]>-\infty$ y
+$\varphi(t)=s[\nu^*+t(\nu-\nu^*)]$, $t\in[0,1]$. Es cóncava y máxima en $t=0$, así que
+$\varphi'(0^+)\le0$. Cada término de $s$ es cóncavo en $t$; sus cocientes incrementales en $0$ crecen
+cuando $t\downarrow0$ y están acotados inferiormente por el cociente en $t=1$, que es integrable. Por
+convergencia monótona, con $\log0=-\infty$,
+\[
+ \varphi'(0^+)=-\int(\nu-\nu^*)(\log\nu^*+1)+\sum_f\int_{I_f}(m_f-m^*_f)\bigl(\log u^*_f+1\bigr),
+\]
+donde cada término está en $(-\infty,+\infty]$; el término $-3\rho$ no contribuye porque las masas
+son iguales.
+
+\emph{Paso 3: $\nu^*>0$ y $m^*_f<1$ en casi todo punto.} Tomemos $\nu\equiv\rho$. Si $\{\nu^*=0\}$
+tuviera medida positiva, el primer integrando valdría $+\infty$ allí y $\varphi'(0^+)=+\infty$. Si
+$\{m^*_f=1\}$ tuviera medida positiva, el término de la familia $f$ valdría $+\infty$, porque las
+proyecciones de $\nu\equiv\rho$ son menores que uno. Ambas cosas contradicen $\varphi'(0^+)\le0$.
+
+\emph{Paso 4: integrabilidad.} Con $\nu\equiv\rho$, cada término de $\varphi'(0^+)$ es finito, pues
+todos son $>-\infty$ y su suma es $\le0$. En el término de $f$, donde
+$m^*_f>\max\{(1+\rho)/2,\,1-1/e\}$ el integrando es $\ge\frac{1-\rho}2(-\log u^*_f-1)\ge0$, y en el
+resto está acotado; por eso $\int_{I_f}m^*_f|\log u^*_f|<\infty$. También
+$\int\nu^*|\log\nu^*|<\infty$, porque la entropía de $\nu^*$ es finita. Sea
+\[
+ W=-\log\nu^*+\sum_f\log\bigl(u^*_f\circ\ell_f\bigr),
+\]
+finita en casi todo punto. Por lo anterior y el Lema~\ref{lem:fubini}, $\nu^*W\in L^1$; sea
+$\theta=\rho^{-1}\int\nu^*W$. Si $\int\nu|\log\nu^*|$ y las
+$\int\nu|\log u^*_f\circ\ell_f|$ son finitas, los términos del paso~2 se trasladan al cuadrado y,
+como las masas son iguales, las constantes se cancelan: $\varphi'(0^+)=\int(\nu-\nu^*)W$.
+
+\emph{Paso 5: $W\le\theta$ en casi todo punto.} Si no, existen $\varepsilon,\gamma>0$ y $N<\infty$
+tales que el conjunto $E$ de los puntos con $\theta+\varepsilon<W\le N$ y con sus cuatro líneas de
+proyección $m^*_f\le1-\gamma$ tiene medida positiva, porque $W$ es finita y $m^*_f\circ\ell_f<1$ en
+casi todo punto. En $E$, $|\log\nu^*|\le|\theta|+\varepsilon+|N|+4\log\frac1\gamma$ y
+$|\log u^*_f\circ\ell_f|\le\log\frac1\gamma$. Sea $g=\frac\rho{|E|}\ind_E$ y
+$\nu_\tau=(1-\tau)\nu^*+\tau g$. Si una línea corta a $E$, la proyección de $\nu^*$ en ella es
+$\le1-\gamma$ y la de $g$ es $\le\rho/|E|$; si no lo corta, $g$ no contribuye. Así
+$\nu_\tau\in\cA_\rho$ para $\tau\le\gamma|E|/\rho$, con $s[\nu_\tau]>-\infty$, y por el paso~4
+\[
+ \varphi'(0^+)=\tau\Bigl(\frac\rho{|E|}\int_EW-\int\nu^*W\Bigr)\ge\tau\bigl(\rho(\theta+\varepsilon)-\rho\theta\bigr)>0,
+\]
+contra $\varphi'(0^+)\le0$.

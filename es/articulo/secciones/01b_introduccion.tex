@@ -1,0 +1,76 @@
+El teorema anterior describe qué ocurre al cambiar la masa. También necesitamos
+comparar dos posiciones de un mismo tablero. Una cota Lipschitz controla el cambio
+del perfil por la distancia entre esas posiciones. La cuestión es si la misma
+constante sigue sirviendo cuando quedan cada vez menos filas vacías.
+
+\begin{teorema}[Regularidad espacial]\label{thm:lipschitz_intro}
+\begin{enumerate}[(a)]
+\item Para $\rho\in(0,1)$ y $\lambda=\lambda(\rho)$, las vacancias y las proyecciones son Lipschitz en
+sus intervalos cerrados con constante $L(\lambda)=2\lambda+8\lambda^2(1+\lambda)$, y $\nu_\rho$ es
+Lipschitz en el cuadrado con constante $6\lambda L(\lambda)$ para la norma del máximo. Las cotas son
+uniformes en cada compacto de $(0,1)$.
+\item Existe $L_*<\infty$ tal que, para todo $x\in[0,1/2]$, los factores reescalados
+$r_R,r_C,u_D,u_A$ son Lipschitz con constante $L_*$, y $\nu$ es acotada y Lipschitz con constantes
+independientes de $x$.
+\end{enumerate}
+\end{teorema}
+
+La parte (a) degenera cuando $\rho\to1$, porque $\lambda(\rho)\to\infty$; la parte (b) es la que
+permite trabajar hasta el tablero lleno.
+
+Definimos, para $x\in(0,1)$ y $\rho=1-x$,
+\begin{equation}\label{eq:F}
+ F(x)=\frac{1-x}{\lambda(1-x)\,x^2}=\frac{1-x}{b}=\int_{[0,1]^2}r_R(r)\,r_C(c)\,u_D(r-c)\,u_A(r+c)\,dr\,dc .
+\end{equation}
+La última expresión es la integral de $u_D(r-c)\,u_A(r+c)$ respecto del peso $r_R(r)\,r_C(c)$,
+que es una densidad de probabilidad en el cuadrado. El interés de $F$ está en la identidad
+integral del teorema siguiente, que recupera $\sopt(1)$ a partir de ella.
+
+\begin{teorema}[La función $F$ y el valor óptimo]\label{thm:F_intro}
+La función $F$ se extiende a una función real analítica y positiva en un entorno de $[0,1]$, con
+\[
+ F(0)=\frac1{b_0},\qquad F(1)=1,\qquad \int_0^1\log F(x)\,dx=1+\sopt(1).
+\]
+Además, cuando $x\downarrow0$,
+\[
+ \sopt(1-x)-\sopt(1)=2x\log\frac1x+O(x).
+\]
+\end{teorema}
+
+\begin{observacion}[Valores numéricos]
+Una resolución numérica determinista del sistema de Euler (Sección~\ref{sec:discusion}) da
+$F(0)\approx0{,}0809$, $F'(0)\approx0{,}516$ e $\int_0^1\log F\approx-0{,}9440$, de modo que
+$\sopt(1)\approx-1{,}9440$. Este valor es compatible con los valores conocidos de la constante
+$\alpha$~\cite{Simkin,NAB}, como cabe esperar si $\alpha=-\sopt(1)$
+(véase la Observación~\ref{obs:simkin}). Son valores numéricos, sin
+certificación de error.
+\end{observacion}
+
+\subsection{Del maximizador al perfil límite}
+
+Para la masa uno, la existencia y la unicidad del óptimo de la entropía
+figuran en el Lema~2.22 de Simkin~\cite{Simkin}. La
+Observación~\ref{obs:simkin} precisa la correspondencia de los funcionales.
+La familia de masas parciales permite estudiar cómo se llega a ese óptimo.
+Primero deducimos la ecuación de Euler en el interior (Sección~\ref{sec:euler}).
+Sus cotas reescaladas permiten identificar los factores que subsisten en masa uno
+(Secciones~\ref{sec:cotas} y~\ref{sec:limite}). El análisis de la dependencia
+respecto de la masa se completa en la Sección~\ref{sec:analiticidad}.
+Para controlar los cambios de posición comparamos el perfil con sus traslaciones
+(Sección~\ref{sec:regularidad}). Finalmente, al integrar la ecuación de Euler
+se obtiene la relación entre $F$ y la entropía óptima (Sección~\ref{sec:F}),
+que evaluamos numéricamente en la Sección~\ref{sec:discusion}.
+
+\subsection{Relación con trabajos previos}
+
+Simkin~\cite{Simkin} acota el valor óptimo en masa uno discretizando el problema; su cota
+superior usa la dualidad de Lagrange, que da al maximizador discreto una forma exponencial en los
+multiplicadores~\cite[Sección~6]{Simkin}. Nobel, Agrawal y Boyd~\cite{NAB} resuelven una
+discretización del mismo problema con un método de Newton y obtienen el intervalo citado. Que el
+maximizador de una entropía bajo restricciones lineales tenga forma exponencial es un principio
+clásico~\cite{Csiszar}. Lo que añade este trabajo es el estudio de la familia de masas parciales,
+con su ecuación de Euler, y sobre todo el control uniforme hasta el tablero lleno: cotas
+explícitas, convergencia y analiticidad del perfil reescalado, regularidad Lipschitz uniforme y
+la identidad integral para $F$. Hasta donde sabemos (la búsqueda bibliográfica no ha sido
+exhaustiva), estos resultados son nuevos; no se reclama novedad para las técnicas generales de
+análisis convexo, de dualidad y de la función implícita~\cite{Brezis,Zeidler}.

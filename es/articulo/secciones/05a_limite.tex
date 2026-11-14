@@ -1,0 +1,63 @@
+\section{El límite del tablero lleno}\label{sec:limite}
+
+Las cotas de la sección anterior impiden que los factores reescalados se anulen o crezcan
+indefinidamente. Queda por identificar su límite. Primero fijamos la densidad óptima de
+masa uno. Después, las normalizaciones de filas y columnas permiten recuperar por separado
+los factores que la componen.
+
+\begin{proposicion}[El problema de masa uno]\label{prop:masa_uno}
+El supremo de $s$ en $\cA_1$ es finito y se alcanza en una única densidad $\nu_1$, de entropía
+finita. Además $\sopt(\rho)\to\sopt(1)$ cuando $\rho\uparrow1$.
+\end{proposicion}
+
+\begin{proof}
+Por la Observación~\ref{obs:slater}, $\nu^\sharp\in\cA_1$ y $s[\nu^\sharp]>-\infty$, y por el
+Lema~\ref{lem:elementales}(c), $s\le6/e$ en $\cA_1$. La existencia y la unicidad se prueban como en el
+paso~1 de la demostración del Teorema~\ref{thm:max}, que no usa $\rho<1$; no hace falta una ecuación
+de Euler en masa uno. Para el límite superior, sea $\rho_j\uparrow1$: las entropías de las
+$\nu_{\rho_j}$ están acotadas (pues $\sopt(\rho_j)\ge s[\rho_j\nu^\sharp]$, que está acotado
+inferiormente), toda subsucesión tiene otra que converge débilmente en $L^1$ a una
+$\bar\nu\in\cA_1$ (como en la demostración de la Proposición~\ref{prop:continuidad}), y la
+semicontinuidad superior débil da $\limsup\sopt(\rho_j)\le s[\bar\nu]\le\sopt(1)$. Para el inferior,
+$\rho\nu_1\in\cA_\rho$ y
+\[
+ \sopt(\rho)\ge s[\rho\nu_1]=-3\rho-\rho\log\rho-\rho\int\nu_1\log\nu_1+\sum_f\int_{I_f}G(\rho\,m_f[\nu_1]),
+\]
+que tiende a $s[\nu_1]=\sopt(1)$ por convergencia dominada, pues $G$ es continua y acotada.
+\end{proof}
+
+\begin{proposicion}[Convergencia en $L^2$]\label{prop:conv_L2}
+Cuando $x\downarrow0$, $\nu_{1-x}\to\nu_1$ en $L^2([0,1]^2)$ y $c_\nu\le\nu_1\le C_\nu$. Además
+$u_{D,x}\to u_{D,0}=1-m_D[\nu_1]$ y $u_{A,x}\to u_{A,0}=1-m_A[\nu_1]$ en $L^2$, $b_x\to b_0\in[\frac12,b_+]$,
+y $r_{R,x}\to r_{R,0}$, $r_{C,x}\to r_{C,0}$ en $L^2$, con
+$\nu_1=b_0\,r_{R,0}\,r_{C,0}\,u_{D,0}\,u_{A,0}$ en casi todo punto.
+\end{proposicion}
+
+\begin{proof}
+Por la Proposición~\ref{prop:cotas}, las $\nu_\rho$ con $\rho\ge\frac12$ están acotadas por
+$C_\nu$, así que toda sucesión $\rho_j\uparrow1$ tiene una subsucesión débilmente convergente en
+$L^2$ a una $\bar\nu\in\cA_1$ con $c_\nu\le\bar\nu\le C_\nu$. Por la semicontinuidad superior débil y
+la Proposición~\ref{prop:masa_uno}, $s[\bar\nu]\ge\limsup\sopt(\rho_j)=\sopt(1)$, y por unicidad
+$\bar\nu=\nu_1$. Así $\nu_\rho\rightharpoonup\nu_1$ y $\nu_1$ hereda las cotas. La convergencia es
+fuerte: $-z\log z$ tiene segunda derivada $-1/z\le-1/C_\nu$ en $(0,C_\nu]$ y los demás términos de $s$
+son cóncavos, de modo que
+\[
+ s\Bigl[\frac{\nu_\rho+\nu_1}2\Bigr]\ge\frac{\sopt(\rho)+\sopt(1)}2+\frac{\|\nu_\rho-\nu_1\|_2^2}{8C_\nu}.
+\]
+El miembro izquierdo es a lo sumo $\sopt(\frac{1+\rho}2)\to\sopt(1)$, y por lo tanto
+$\|\nu_\rho-\nu_1\|_2\to0$.
+
+Las proyecciones son operadores acotados de $L^2([0,1]^2)$ en $L^2(I_f)$, por Cauchy--Schwarz en
+fibras de longitud a lo sumo uno; luego $u_{D,x}$ y $u_{A,x}$ convergen en $L^2$ y los límites
+conservan la cota $\kappa\le u\le1$. Levantar un perfil de línea al cuadrado no aumenta su norma
+$L^2$, y los productos y cocientes preservan la convergencia en $L^2$ gracias a las cotas
+bilaterales; así $K_x\to K_0=u_{D,0}(r-c)\,u_{A,0}(r+c)$ y $V_x=\nu_{1-x}/K_x=b_x\,r_{R,x}\,r_{C,x}$
+converge en $L^2$ a $V_0=\nu_1/K_0$. Las identidades
+\begin{equation}\label{eq:identidades_V}
+ b_x=\int_{[0,1]^2}V_x,\qquad r_{R,x}=T_RV_x/b_x,\qquad r_{C,x}=T_CV_x/b_x,
+\end{equation}
+consecuencia de $\int r_R=\int r_C=1$, dan $b_x\to b_0=\int V_0\in[\frac12,b_+]$ y la convergencia en
+$L^2$ de $r_{R,x}$ y $r_{C,x}$ a $r_{R,0}=T_RV_0/b_0$ y $r_{C,0}=T_CV_0/b_0$. Pasando al límite en
+$V_x=b_x\,r_{R,x}\,r_{C,x}$ se obtiene $V_0=b_0\,r_{R,0}\,r_{C,0}$, y finalmente
+$\nu_1=K_0V_0=b_0\,r_{R,0}\,r_{C,0}\,K_0$.
+\end{proof}

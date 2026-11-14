@@ -1,0 +1,63 @@
+\section{Valores numéricos y alcance}\label{sec:discusion}
+
+\subsection{Valores numéricos}
+
+La Tabla~\ref{tab:numerica} recoge una resolución numérica determinista del sistema de Euler
+reescalado: método de Newton en mallas espaciales de $64$, $128$ y $256$ puntos con tolerancia
+$3\cdot10^{-12}$, una malla en $x$ de paso $0{,}01$ con nodos adicionales, interpolación por
+\emph{splines} naturales y regla de Simpson para $\int\log F$; la derivada $F'(0)$ se obtiene por
+diferenciación implícita del sistema discretizado. La diferencia máxima entre las curvas de $256$ y
+$128$ puntos, en $1001$ nodos, es $1{,}085\cdot10^{-5}$; el residuo de Newton máximo es
+$2{,}607\cdot10^{-12}$; la pendiente implícita y la diferencia centrada con paso $10^{-4}$ en $x=0$,
+en la malla de $256$ puntos, difieren en $4{,}63\cdot10^{-9}$. Nobel, Agrawal y Boyd~\cite{NAB}
+usan también un método de Newton para el problema de masa uno discretizado.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrrr}
+\toprule
+Malla & $F(0)$ & $F'(0)$ & $\int_0^1\log F$\\
+\midrule
+$64$ & $0{,}08086911055$ & $0{,}5157082194$ & $-0{,}9441617254$\\
+$128$ & $0{,}08090292111$ & $0{,}5157547494$ & $-0{,}9440411866$\\
+$256$ & $0{,}08091137290$ & $0{,}5157663849$ & $-0{,}9440110586$\\
+\midrule
+Richardson & $0{,}080914$ & $0{,}515770$ & $-0{,}944001$\\
+\bottomrule
+\end{tabular}
+\caption{Valores numéricos de la función $F$. Las diferencias entre mallas consecutivas decrecen
+en un factor cercano a cuatro, compatible con convergencia de segundo orden; la última fila es la
+extrapolación de Richardson de las mallas de $128$ y $256$ puntos con ese orden, calculada a partir de
+las filas anteriores. Son valores numéricos, sin certificación por intervalos.}
+\label{tab:numerica}
+\end{table}
+
+Por la Proposición~\ref{prop:intlogF}, $\sopt(1)=\int_0^1\log F-1\approx-1{,}9440$. El valor
+$-\sopt(1)\approx1{,}9440$ está dentro del intervalo $\alpha=1{,}942\pm3\cdot10^{-3}$
+de~\cite{Simkin}, y el valor extrapolado, $-\sopt(1)\approx1{,}944001$, está dentro del intervalo
+$[1{,}944000752;\,1{,}944001082]$ de~\cite{NAB}. La Observación~\ref{obs:simkin} explica la normalización que permite comparar ambas
+cantidades. La concordancia de los decimales es una comprobación numérica. Las extrapolaciones con las mallas $(64,128)$ y $(128,256)$ difieren en menos de
+$10^{-8}$; el error de la cuadratura en $x$ no está estimado.
+\ifx\DOIcodigo\empty\else
+Un programa que reproduce estos valores con otro método, una iteración de punto fijo, está
+en~\cite{Codigo}; las diferencias con la tabla son menores que $10^{-8}$.
+\fi
+Por simulación de Monte Carlo en tableros de $1024\times1024$, Liu, Liao y Wang~\cite{LLW} estiman
+$\alpha\approx1{,}946\pm0{,}003$ integrando el calor específico desde temperatura infinita.
+
+\subsection{Interpretación en el tablero lleno}
+
+Cuando $x=0$, las vacancias de filas y columnas valen cero. Los factores
+$r_{R,0}$ y $r_{C,0}$ describen, respectivamente, los límites de las densidades de vacancia
+en filas y en columnas, cada una normalizada a masa uno. Junto con las vacancias diagonales
+límite y el factor $b_0$ determinan $\nu_1$ por el
+Teorema~\ref{thm:lleno}. La regularidad espacial obtenida es Lipschitz, con una misma
+cota para $0\le x\le 1/2$. La analiticidad describe una dependencia distinta,
+la de los perfiles respecto del parámetro $x$.
+
+Todos los enunciados de este artículo se refieren al problema continuo. Las constantes de las
+Secciones~\ref{sec:cotas} y~\ref{sec:regularidad} son explícitas pero muy conservadoras, y no
+tienen utilidad numérica. La Tabla~\ref{tab:numerica} estima $F(0)$ resolviendo el sistema continuo.
+La identidad $F(0)=1/b_0$ procede del Teorema~\ref{thm:F}. Interpretar este valor
+como una frecuencia en tableros finitos exige además especificar la ley de las
+colocaciones y justificar el paso del modelo discreto al continuo.

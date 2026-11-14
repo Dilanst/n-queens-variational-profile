@@ -1,0 +1,88 @@
+\section{Preliminares}\label{sec:preliminares}
+
+\subsection{Proyecciones y fibras}
+
+Extendemos cada densidad $\nu\ge0$ integrable en $[0,1]^2$ por cero fuera del cuadrado. Sus
+proyecciones (o densidades de línea) son
+\begin{gather*}
+ m_R(r)=\int_0^1\nu(r,c)\,dc,\qquad m_C(c)=\int_0^1\nu(r,c)\,dr,\\
+ m_D(d)=\int\nu(r,r-d)\,dr,\qquad m_A(s)=\int\nu(r,s-r)\,dr,
+\end{gather*}
+definidas en casi todo punto de $I_R,I_C,I_D,I_A$. Escribimos también $T_f\nu=m_f$. La \emph{fibra}
+de $f$ en $t\in I_f$ es $\{\ell_f=t\}\cap[0,1]^2$, con la medida paramétrica $dc$ para las filas y
+$dr$ para las demás familias, sin el factor $\sqrt2$ de la longitud euclídea. Toda fibra tiene
+longitud paramétrica a lo sumo uno: la diagonal $d$ mide $1-|d|$ y la antidiagonal $s$, $1-|s-1|$.
+
+\begin{lema}\label{lem:fubini}
+Para toda $g\ge0$ medible en $I_f$, $\int_{[0,1]^2}\nu\,(g\circ\ell_f)=\int_{I_f}m_f\,g$. En
+particular $\int_{I_f}m_f=\int\nu$ para las cuatro familias, y
+$\|T_f\nu-T_f\nu'\|_{L^1(I_f)}\le\|\nu-\nu'\|_{L^1}$.
+\end{lema}
+
+\begin{proof}
+Es el teorema de Fubini con los cambios de variable $(r,c)\mapsto(r,\ell_f(r,c))$ o
+$(r,c)\mapsto(c,\ell_f(r,c))$, de jacobiano uno.
+\end{proof}
+
+La densidad constante $\nu=\rho$ permite leer estas integrales en la Figura~\ref{fig:tablero-fibras}(b).
+La diagonal central recoge masa $\rho$ por unidad de coordenada diagonal y la de
+$r-c=1/2$ recoge $\rho/2$, pues su intervalo de filas tiene la mitad de longitud.
+Así, aun con densidad constante en el cuadrado, la proyección diagonal varía con la posición.
+
+\subsection{La clase admisible y el funcional}
+
+Las vacancias son $u_f=1-m_f$. Para $\rho\in(0,1]$, $\cA_\rho$ es el conjunto de las densidades
+$\nu\ge0$ con $\int\nu=\rho$ y $m_f\le1$ en casi todo punto para las cuatro familias. Por el
+Lema~\ref{lem:fubini}, $\int u_R=\int u_C=1-\rho$ e $\int u_D=\int u_A=2-\rho$. Con
+$G(z)=-(1-z)\log(1-z)$ en $[0,1]$ y $0\log0=0$, el funcional~\eqref{eq:funcional} se escribe
+\[
+ s[\nu]=-3\rho-\int\nu\log\nu+\sum_f\int_{I_f}G(m_f),
+\]
+con $s[\nu]=-\infty$ si $\int\nu\log\nu=+\infty$. La función $G$ es cóncava, continua y
+$0\le G\le1/e$. Escribimos
+\[
+ \Pi[\nu](r,c)=\prod_f\bigl(1-m_f(\ell_f(r,c))\bigr)=\prod_fu_f(\ell_f(r,c)).
+\]
+
+\begin{lema}[Propiedades elementales]\label{lem:elementales}
+\begin{enumerate}[(a)]
+\item $\cA_\rho$ es convexo y cerrado en $L^1$, y $s$ es cóncavo en $\cA_\rho$; el término
+$-\int\nu\log\nu$ es estrictamente cóncavo.
+\item Para $\rho<1$, la densidad constante $\rho$ pertenece a $\cA_\rho$, con proyecciones $\rho$,
+$\rho$, $\rho(1-|d|)$ y $\rho(1-|s-1|)$.
+\item $s\le-\rho\log\rho+6/e$ en $\cA_\rho$; en particular $\sopt(\rho)<\infty$.
+\end{enumerate}
+\end{lema}
+
+\begin{proof}
+(a) La masa y las proyecciones son lineales; la cerradura sigue del Lema~\ref{lem:fubini}. La
+concavidad de $G$ y de $-z\log z$ da la de $s$. (b) Es un cálculo directo. (c) Por Jensen,
+$-\int\nu\log\nu\le-\rho\log\rho$, y los dominios de las cuatro familias miden en total seis, con
+$G\le1/e$.
+\end{proof}
+
+\begin{observacion}[Relación con el problema de Simkin]\label{obs:simkin}
+Para $\rho=1$, las proyecciones de filas y columnas valen uno y $u_R=u_C=0$, de modo que
+$s[\nu]=-3-\int\nu\log\nu-\int u_D\log u_D-\int u_A\log u_A$. Tras trasladar el cuadrado a
+$[-\frac12,\frac12]^2$, las vacancias diagonales son densidades de integral uno en intervalos de
+longitud dos, y cada divergencia respecto de la uniforme en $[-1,1]$ vale $\int u\log u+\log2$. En la Definición~2.9 de~\cite{Simkin}, las dos constantes $\log2$ se cancelan con el
+término $2\log2$. Se obtiene así la misma expresión para la entropía sobre las densidades
+admisibles de masa uno. La Observación~2.7 de esa referencia distingue la clase de medidas
+definida por las restricciones de proyección y la definida por clausura, y precisa su relación
+para las medidas absolutamente continuas. Según la Sección~2.2 de~\cite{Simkin} (Teorema~2.24,
+aplicado a toda la clase definida por clausura, y Lema~2.22), $-\alpha$ es el máximo de esa entropía
+en dicha clase. Con la correspondencia anterior y la Observación~2.7 citada se seguiría
+$\alpha=-\sopt(1)$. Esa identidad no se usa en este trabajo, y la comparación de constantes de la
+Sección~\ref{sec:discusion} es numérica.
+\end{observacion}
+
+\begin{observacion}[Una densidad estrictamente admisible de masa uno]\label{obs:slater}
+La densidad $\nu^\sharp(r,c)=1-\frac15\cos(2\pi r)\cos(2\pi c)$ cumple $\frac45\le\nu^\sharp\le\frac65$ y
+tiene proyecciones de filas y columnas idénticamente iguales a uno. Para $0\le d\le1$,
+\[
+ m_D[\nu^\sharp](d)=1-d-\frac15\Bigl[\frac{1-d}2\cos(2\pi d)-\frac{\sin(2\pi d)}{4\pi}\Bigr],
+\]
+cuya derivada es $-1+\frac15[\cos(2\pi d)+\pi(1-d)\sin(2\pi d)]\le-1+\frac{1+\pi}5<0$; como
+$m_D[\nu^\sharp](0)=\frac9{10}$, se obtiene $m_D[\nu^\sharp]\le\frac9{10}$. Por simetría, lo mismo vale para
+$d<0$ y para la familia antidiagonal. En particular $\nu^\sharp\in\cA_1$ y $s[\nu^\sharp]>-\infty$.
+\end{observacion}

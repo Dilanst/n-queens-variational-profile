@@ -1,0 +1,14 @@
+# LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+main.pdf
+# Lean
+.lake/
+# Python
+__pycache__/

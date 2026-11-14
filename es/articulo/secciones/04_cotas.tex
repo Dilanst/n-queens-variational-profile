@@ -1,0 +1,95 @@
+\section{Cotas cerca del tablero lleno}\label{sec:cotas}
+
+Mientras la masa está separada de uno, la actividad controla la densidad y las vacancias.
+Cerca del tablero lleno esa cota crece con $\lambda$. Usaremos la densidad estrictamente admisible $\nu^\sharp$
+de la Observación~\ref{obs:slater}, que llena filas y columnas y conserva capacidad en ambas
+direcciones diagonales. Permite controlar cada factor en las variables de~\eqref{eq:reescala}.
+
+En esta sección $\frac12\le\rho<1$, $x=1-\rho\in(0,\frac12]$, $\nu=\nu_\rho$, $\lambda=\lambda(\rho)$,
+y las vacancias son las versiones continuas del Lema~\ref{lem:vacancias}. Indexamos la densidad por
+la masa ($\nu_\rho$, $\nu_1$) y el perfil reescalado~\eqref{eq:reescala} por $x$: escribimos
+$(b_x,r_{R,x},r_{C,x},u_{D,x},u_{A,x})$ cuando haga falta indicar $x$; en el perfil reescalado y en $K_0$, $V_0$ y
+$\Phi_{f,0}$ (Sección~\ref{sec:limite}), el subíndice $0$ denota el límite $x=0$. Con la densidad $\nu^\sharp$ de la Observación~\ref{obs:slater} fijamos
+\[
+ \kappa_0=\frac1{10},\qquad M_0=\frac65,\qquad
+ L_0=\frac2{\kappa_0}\Bigl\{M_0+\frac1e+4\log\frac2{\kappa_0}\Bigr\}+4\log\frac2{\kappa_0},
+\]
+de modo que $\nu^\sharp\le M_0$ y $m_D[\nu^\sharp],m_A[\nu^\sharp]\le1-\kappa_0$.
+
+\begin{lema}[Control de los logaritmos diagonales]\label{lem:log_diag}
+$\displaystyle \mathcal L_\rho:=\int_{I_D}-\log u_D+\int_{I_A}-\log u_A\le L_0$.
+\end{lema}
+
+\begin{proof}
+La densidad $\rho\nu^\sharp$ pertenece a $\cA_\rho$. Por la ecuación de Euler,
+$-\log\nu+\sum_f\log u_f\circ\ell_f$ es constante; integrándola contra $\nu-\rho\nu^\sharp$, que tiene
+masa cero, y usando el Lema~\ref{lem:fubini}, se obtiene la identidad exacta
+\begin{equation}\label{eq:identidad_entropia}
+ 0=-\int\rho\nu^\sharp\log\nu+\int\nu\log\nu+\sum_f\int_{I_f}\bigl(m_f-\rho\,m_f[\nu^\sharp]\bigr)(-\log u_f),
+\end{equation}
+cuyos términos son finitos por el Teorema~\ref{thm:max}(c). La parte de entropía es al menos
+$-M_0-1/e$: donde $\nu>1$ se usa $\log\nu\le\nu$, de modo que $-\int\rho\nu^\sharp\log\nu\ge-\rho M_0\int\nu\ge-M_0$,
+y por Jensen $\int\nu\log\nu\ge\rho\log\rho\ge-1/e$. Para una fila o una columna, $m_f[\nu^\sharp]=1$ e
+$\int u_f=x$, luego
+\begin{equation}\label{eq:covarianza}
+ \int(m_f-\rho)(-\log u_f)=\int(u_f-x)\log u_f\ge0 ;
+\end{equation}
+la desigualdad es la covarianza no negativa de una función y su logaritmo, pues equivale a integrar
+$(u_f(t)-u_f(t'))(\log u_f(t)-\log u_f(t'))\ge0$. En una diagonal o antidiagonal, donde
+$u_f\le\kappa_0/2$ se tiene $m_f-\rho\,m_f[\nu^\sharp]\ge(1-\frac{\kappa_0}2)-(1-\kappa_0)=\frac{\kappa_0}2$; en
+el resto, el integrando es al menos $-\log(2/\kappa_0)$. Los dos intervalos diagonales miden en total
+cuatro. De~\eqref{eq:identidad_entropia}--\eqref{eq:covarianza} resulta
+$\frac{\kappa_0}2\int_{\{u\le\kappa_0/2\}}(-\log u)\le M_0+\frac1e+4\log\frac2{\kappa_0}$, donde la
+integral recorre ambas familias, y en $\{u>\kappa_0/2\}$ la integral de $-\log u$ es a lo sumo
+$4\log(2/\kappa_0)$. Sumando se obtiene $\mathcal L_\rho\le L_0$.
+\end{proof}
+
+Con el reescalamiento~\eqref{eq:reescala} y $K(r,c)=u_D(r-c)\,u_A(r+c)$ se tiene
+$\int r_R=\int r_C=1$, porque $\int u_R=\int u_C=x$, y $\nu=b\,r_Rr_CK$. Las fórmulas del
+Lema~\ref{lem:vacancias} se escriben
+\begin{equation}\label{eq:filas}
+ r_R=\frac1{x+b\int_0^1r_CK\,dc},\qquad r_C=\frac1{x+b\int_0^1r_RK\,dr},
+\end{equation}
+\begin{equation}\label{eq:diagonales}
+ u_D=\frac1{1+b\int_{\ell_D}r_Rr_Cu_A},\qquad u_A=\frac1{1+b\int_{\ell_A}r_Rr_Cu_D},
+\end{equation}
+donde $\int_{\ell_f}$ indica la integral sobre la fibra de $f$ con la medida paramétrica.
+
+\begin{proposicion}[Cotas bilaterales]\label{prop:cotas}
+Sean $M=2e^{L_0}$, $b_+=e^{L_0}M^2$ y $\kappa=(1+b_+M^2)^{-1}$. Para todo $x\in(0,\frac12]$,
+\[
+ \tfrac12\le b\le b_+,\qquad \frac1{1+b_+}\le r_R,r_C\le M,\qquad \kappa\le u_D,u_A\le1,\qquad
+ c_\nu\le\nu\le C_\nu,
+\]
+con $c_\nu=\kappa^2/(2(1+b_+)^2)$ y $C_\nu=b_+M^2$.
+\end{proposicion}
+
+\begin{proof}
+Normalizamos geométricamente: $g_R=\exp\int\log r_R$, $g_C=\exp\int\log r_C$, $R=r_R/g_R$,
+$C=r_C/g_C$ y $B=b\,g_Rg_C$. Así $\int\log R=\int\log C=0$, $0<g_R,g_C\le1$ por Jensen, y
+$\nu=BRCK$. Para cada fila, las dos coordenadas diagonales recorren subintervalos de $I_D$ e $I_A$
+con jacobiano uno; como $-\log u\ge0$, el Lema~\ref{lem:log_diag} da $\int_0^1\log K(r,c)\,dc\ge-L_0$,
+y lo mismo para cada columna. Por Jensen, $\int_0^1C\,K(r,\cdot)\ge e^{-L_0}$ e
+$\int_0^1R\,K(\cdot,c)\ge e^{-L_0}$. Como $m_R=BR\int CK\le1$ y $m_C\le1$,
+\begin{equation}\label{eq:cota_RC}
+ R,\ C\le e^{L_0}/B .
+\end{equation}
+Además $\int\nu\log R=\int_0^1m_R\log R=\int_0^1(1-xr_R)\log R=-x\int r_R\log R\le0$, porque
+$\int r_R\log R=\int r_R\log r_R-\log g_R\ge0$; lo mismo vale para $C$. De
+$\log\nu=\log B+\log R+\log C+\log K$ y $K\le1$,
+\[
+ \rho\log B=\int\nu\log\nu-\int\nu\log K-\int\nu\log R-\int\nu\log C\ \ge\ \rho\log\rho .
+\]
+Por otra parte, integrando $\log\nu$ respecto del área y aplicando Jensen,
+$\log B+\int\log K\le\log\rho\le0$, y $\int_{[0,1]^2}\log K\ge-L_0$. En resumen,
+\begin{equation}\label{eq:cota_B}
+ \tfrac12\le B\le e^{L_0}.
+\end{equation}
+Por~\eqref{eq:cota_RC}, $R,C\le M$; como $1=\int r_R=g_R\int R$, se tiene $g_R,g_C\ge1/M$. Luego
+$b=B/(g_Rg_C)\in[\frac12,b_+]$ y $r_R=g_RR\le M$, $r_C\le M$. La cota inferior de $r_R$ y $r_C$ sale
+de~\eqref{eq:filas}, con $K\le1$ e $\int r=1$. Como cada fibra mide a lo sumo uno,~\eqref{eq:diagonales} da
+$u_D,u_A\ge\kappa$. Las cotas de $\nu=b\,r_Rr_CK$ son consecuencia directa.
+\end{proof}
+
+La cota inferior $\kappa$ de las vacancias diagonales se ha demostrado, no supuesto. Las constantes son explícitas pero muy
+conservadoras, sin utilidad numérica.

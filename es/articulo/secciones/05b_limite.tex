@@ -1,0 +1,97 @@
+\begin{proposicion}[Convergencia uniforme]\label{prop:conv_unif}
+Cuando $x\downarrow0$, $r_{R,x},r_{C,x},u_{D,x},u_{A,x}$ convergen uniformemente a versiones continuas
+y positivas de $r_{R,0},r_{C,0},u_{D,0},u_{A,0}$, que cumplen las cotas de la
+Proposición~\ref{prop:cotas} y las ecuaciones~\eqref{eq:filas}--\eqref{eq:diagonales} con $x=0$ y $b=b_0$.
+\end{proposicion}
+
+\begin{proof}
+Escribimos las integrales de~\eqref{eq:filas}--\eqref{eq:diagonales} como $\Phi_f$, de modo que
+$r_R=1/(x+b\Phi_R)$, $r_C=1/(x+b\Phi_C)$, $u_D=1/(1+b\Phi_D)$ y $u_A=1/(1+b\Phi_A)$, y sea $\Phi_{f,0}$
+la misma integral formada con los límites. En cada integral de fibra, todo factor ajeno a la familia
+de la fibra se evalúa en una coordenada afín de pendiente de módulo uno o dos; no hay pendiente cero,
+porque las cuatro familias no son paralelas entre sí. La diferencia de productos se acota por la suma
+de las diferencias de sus factores, acotados por $M$, y un cambio de variable da
+\begin{equation}\label{eq:fibras_unif}
+ \sup_{t\in I_f}|\Phi_f(t)-\Phi_{f,0}(t)|\le C\sum_{g\ne f}\|y_{g,x}-y_{g,0}\|_{L^1(I_g)},
+\end{equation}
+donde $y_g$ es el factor normalizado de la familia $g$ ($r_R$, $r_C$, $u_D$ o $u_A$) y $C$ depende sólo
+de $M$. Esta estimación vale antes de saber que los límites son continuos. Las integrales límite
+$\Phi_{f,0}$ son continuas, por la continuidad de las traslaciones en $L^1$ y porque los extremos de las
+fibras se mueven continuamente, como en el Lema~\ref{lem:vacancias}. Por la
+Proposición~\ref{prop:conv_L2}, $\Phi_f\to\Phi_{f,0}$ uniformemente. Los denominadores están separados
+de cero: $b\Phi_R,b\Phi_C\ge\kappa^2/(2(1+b_+))$ y $1+b\Phi_D,1+b\Phi_A\ge1$. Las fórmulas racionales
+dan entonces la convergencia uniforme a $1/(b_0\Phi_{R,0})$, etc., que son continuas, positivas e
+iguales en casi todo punto a los límites en $L^2$.
+\end{proof}
+
+Para el teorema de la función implícita usamos el espacio de Banach
+$X=C(I_R)\oplus C(I_C)\oplus C(I_D)\oplus C(I_A)$, con incógnitas
+$z=(z_R,z_C,z_D,z_A)=(\log r_R,\log r_C,\log u_D,\log u_A)\in X$ y $\gamma=\log b$. Para
+$(x,z,\gamma)\in\mathbb R\times X\times\mathbb R$ sean $\nu=b\,r_Rr_Cu_Du_A$ y
+\[
+ E_R=xr_R+T_R\nu-1,\quad E_C=xr_C+T_C\nu-1,\quad E_D=u_D+T_D\nu-1,\quad E_A=u_A+T_A\nu-1,
+\]
+\[
+ n_R=\int r_R-1,\qquad n_C=\int r_C-1 .
+\]
+Son aplicaciones analíticas reales entre espacios de Banach (exponenciales, productos, proyecciones
+lineales acotadas e integrales). Como $\int T_R\nu=\int T_C\nu$, hay una redundancia exacta:
+$\int E_R-\int E_C=x(n_R-n_C)$. Sean $Z\subset X$ el subespacio cerrado $\{\int e_R=\int e_C\}$, de
+codimensión uno, y $P(e)=(e_R,\,e_C-\int e_C+\int e_R,\,e_D,\,e_A)$, que lleva $X$ sobre $Z$ y es la
+identidad en $Z$. Consideramos
+\begin{equation}\label{eq:sistema}
+ \mathscr E(x,z,\gamma)=(PE,n_R,n_C)=0\qquad\text{en }Z\oplus\mathbb R^2 .
+\end{equation}
+Si $PE=0$ y $n_R=n_C=0$, la redundancia da $\int E_C=\int E_R=0$ y luego $E=0$, también para
+$x\ne0$; así~\eqref{eq:sistema} equivale a $E=0$ junto con las dos normalizaciones. Por el
+Lema~\ref{lem:vacancias} y la Proposición~\ref{prop:conv_unif}, los maximizadores ($0<x\le\frac12$) y
+el límite ($x=0$) lo satisfacen.
+
+\begin{teorema}[Rama analítica en el tablero lleno]\label{thm:rama}
+Existen $\varepsilon>0$ y una aplicación analítica real $x\mapsto(z(x),\gamma(x))$ de
+$(-\varepsilon,\varepsilon)$ en $X\times\mathbb R$ que resuelve~\eqref{eq:sistema}, con
+\[
+ (z(0),\gamma(0))=(\log r_{R,0},\log r_{C,0},\log u_{D,0},\log u_{A,0},\log b_0),
+\]
+y que para $0<x<\varepsilon$ coincide con el perfil óptimo:
+\[
+ (z(x),\gamma(x))=(\log r_{R,x},\log r_{C,x},\log u_{D,x},\log u_{A,x},\log b_x).
+\]
+\end{teorema}
+
+\begin{proof}
+Para una variación $(h,\beta)=(h_R,h_C,h_D,h_A,\beta)\in X\oplus\mathbb R$ ponemos
+$w=\beta+\sum_fh_f\circ\ell_f$, de modo que $\dot\nu=\nu_1w$ en $x=0$. La parte de la derivada de
+$E_f$ que actúa sobre $h_f$ es $h_f$: para filas y columnas porque $T_R\nu_1=T_C\nu_1=1$, y en una
+diagonal porque $(u_{D,0}+m_D[\nu_1])h_D=h_D$. Los operadores cruzados entre familias distintas son
+compactos por Arzelà--Ascoli: parametrizados por la coordenada de la otra familia, tienen núcleos
+continuos en el dominio que permite la fibra (extenderlos por cero puede crear saltos en el borde de
+ese dominio, lo que no afecta al argumento); para dos parámetros de fibra próximos se usa la
+continuidad uniforme del núcleo en el dominio común, y la diferencia simétrica de los intervalos de
+integración tiene longitud $O(|t-t'|)$. Para $D\leftrightarrow A$ el cambio de variable tiene
+jacobiano $\frac12$ y extremos $[|d|,2-|d|]$. El término en $\beta$ tiene rango uno. Así, la derivada
+de $E$ es un operador de Fredholm de $X\oplus\mathbb R$ en $X$ de índice uno. En $x=0$ su imagen está
+en $Z$, porque la derivada de la redundancia se anula, lo que eleva el índice a dos como operador con
+valores en $Z$; las dos ecuaciones de normalización lo devuelven a cero.
+
+Si $(h,\beta)$ está en el núcleo de la derivada de~\eqref{eq:sistema} en $x=0$, entonces
+\begin{gather*}
+ T_R(\nu_1w)=T_C(\nu_1w)=0,\qquad T_D(\nu_1w)=-u_{D,0}h_D,\qquad T_A(\nu_1w)=-u_{A,0}h_A,\\
+ \int r_{R,0}h_R=\int r_{C,0}h_C=0 .
+\end{gather*}
+Multiplicando por las componentes de $w$, integrando y usando la ecuación de filas para anular
+$\beta\int\nu_1w=\beta\int T_R(\nu_1w)=0$, se obtiene
+\begin{equation}\label{eq:energia}
+ \int_{[0,1]^2}\nu_1w^2+\int_{I_D}u_{D,0}h_D^2+\int_{I_A}u_{A,0}h_A^2=0 .
+\end{equation}
+Por positividad, $h_D=h_A=0$ y $\beta+h_R(r)+h_C(c)=0$ en el cuadrado; luego $h_R$ y $h_C$ son
+constantes, las normalizaciones las anulan y entonces $\beta=0$. El núcleo es trivial y, con índice
+cero, la derivada es un isomorfismo con inversa acotada. El teorema analítico de la función
+implícita~\cite{Zeidler} da un entorno $U$ de $(0,z(0),\gamma(0))$ y una rama analítica cuyos puntos
+son exactamente las soluciones de~\eqref{eq:sistema} en $U$. Por la Proposición~\ref{prop:conv_unif} y las
+cotas inferiores, los logaritmos de los perfiles óptimos convergen uniformemente cuando $x\downarrow0$;
+para $x>0$ pequeño están en $U$ y coinciden con la rama.
+\end{proof}
+
+Las Proposiciones~\ref{prop:cotas}, \ref{prop:conv_L2} y~\ref{prop:conv_unif} y el
+Teorema~\ref{thm:rama} prueban el Teorema~\ref{thm:lleno}.

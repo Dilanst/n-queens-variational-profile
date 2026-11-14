@@ -1,0 +1,98 @@
+\subsection{Uniformidad hasta el tablero lleno}
+
+Para $x\in[0,\frac12]$ usamos el perfil reescalado y, en $x=0$, su límite
+(Proposición~\ref{prop:conv_unif}). Con las constantes de la Proposición~\ref{prop:cotas} y
+$b_-=\frac12$ fijamos
+\begin{gather*}
+ m_0=\min\{\kappa,(1+b_+)^{-1}\},\qquad \overline K=\max\{1,M,(b_-\kappa^2)^{-1}\},\\
+ \overline B=b_+\overline K^2,\qquad c_0=b_-m_0^4,\qquad \lambda_c=\min\{c_0/2,\kappa/5\}.
+\end{gather*}
+Los factores de filas y columnas, y sus extensiones usadas abajo, estarán en $[m_0,\overline K]$, y los
+diagonales en $[\kappa,1]$; toda densidad del segmento logarítmico estará entre $c_0$ y $\overline B$.
+
+Con $v=(\log r_R,\log r_C,\log u_D,\log u_A)$, el dual reescalado a $x$ y $b$ fijos es
+\[
+ \cE_{x,b}(v)=\sum_{f=R,C}\int(xe^{v_f}-v_f)+\sum_{f=D,A}\int(e^{v_f}-v_f)
+ +b\int_{[0,1]^2}\exp\Bigl(\sum_fv_f\circ\ell_f\Bigr).
+\]
+Con $\nu_v=b\exp(\sum_fv_f\circ\ell_f)$, su gradiente es $\cG_{R,C}=xe^{v_{R,C}}-1+T_{R,C}\nu_v$ y
+$\cG_{D,A}=e^{v_{D,A}}-1+T_{D,A}\nu_v$. El perfil satisface $\cG_{x,b}(v)=0$, también en $x=0$ por la
+convergencia uniforme. Si $S_w=\sum_fw_f\circ\ell_f$, el hessiano cumple
+\[
+ \langle w,D\cG_{x,b}(v)w\rangle=x\sum_{R,C}\int e^{v_f}w_f^2+\sum_{D,A}\int e^{v_f}w_f^2+\int\nu_vS_w^2
+ \ \ge\ \kappa\bigl(\|w_D\|_2^2+\|w_A\|_2^2\bigr)+c_0\|S_w\|_2^2 ,
+\]
+con las cotas anteriores, también a lo largo de segmentos.
+
+\begin{lema}[Coercividad fijando una familia transversal]\label{lem:coercividad}
+Si los factores de $v$ cumplen las cotas anteriores y $w_C=0$, o $w_R=0$, entonces $\langle w,D\cG_{x,b}(v)w\rangle\ge\lambda_c\|w\|_\cH^2$. Por
+consiguiente, si $\widetilde v_C=v_C$ y las cotas valen a lo largo del segmento,
+$\|\widetilde v-v\|_\cH\le\|\cG_{x,b}(\widetilde v)-\cG_{x,b}(v)\|_\cH/\lambda_c$, y lo mismo si se fija $R$
+en lugar de $C$.
+\end{lema}
+
+\begin{proof}
+Con $w_C=0$, $w_R\circ\ell_R=S_w-w_D\circ\ell_D-w_A\circ\ell_A$. Levantar $R$ al cuadrado es una
+isometría y levantar $D$ o $A$ no aumenta la norma $L^2$, pues sus fibras tienen longitud paramétrica a
+lo sumo uno. De $|a-b-c|^2\le2a^2+4(b^2+c^2)$ resulta
+$\|w\|_\cH^2\le2\|S_w\|_2^2+5(\|w_D\|_2^2+\|w_A\|_2^2)$, lo que con la cota del hessiano da la
+coercividad. Se integra el hessiano en el segmento logarítmico y se aplica Cauchy--Schwarz. El caso
+$w_R=0$ es simétrico.
+\end{proof}
+
+En $x=0$, $w=(1,-1,0,0)$ anula la forma cuadrática, de modo que la estimación no vale para variaciones
+arbitrarias. La normalización $\int r_R=\int r_C=1$ fija la representación de la solución, pero la
+igualdad de masas no equivale a la ortogonalidad a este modo neutro; por eso la prueba siguiente
+mantiene $C$ idéntica punto a punto al trasladar $R$, y viceversa.
+
+Se extienden $u_D,u_A$ por uno fuera de sus intervalos. Para $s\in\mathbb R$ sea
+\[
+ \widehat r_R(s)=\Bigl[x+b\int_0^1r_C(c)\,\widehat u_D(s-c)\,\widehat u_A(s+c)\,dc\Bigr]^{-1}.
+\]
+Como $\int r_C=1$, el denominador está entre $b_-\kappa^2$ y $1+b_+$, así que
+$\widehat r_R\in[m_0,\overline K]$, y coincide con $r_R$ en $[0,1]$. Para una traslación $t$ sean
+$r_R^t(r)=\widehat r_R(r+t)$, $r_C^t=r_C$, $u_D^t(d)=\widehat u_D(d+t)$, $u_A^t(s)=\widehat u_A(s+t)$ y
+$v^t=\log(r_R^t,r_C^t,u_D^t,u_A^t)$. Con $\eta^t=\cG_{x,b}(v^t)$ se tiene
+\[
+ \eta_R^t=0,\qquad |\eta_C^t|,|\eta_D^t|,|\eta_A^t|\le2\overline B|t|,\qquad \|\eta^t\|_\cH\le2\sqrt5\,\overline B|t| ,
+\]
+por la geometría del Lema~\ref{lem:residuo}: los dominios difieren en dos tiras de longitud total a lo
+sumo $2|t|$, con densidad extendida a lo sumo $\overline B$, y fuera del intervalo diagonal la fibra
+original es vacía y la vacancia extendida vale uno. Todos los segmentos conservan las cotas. Como
+$v_C^t=v_C$, el Lema~\ref{lem:coercividad} da $\|v^t-v\|_\cH\le2\sqrt5\,\overline B|t|/\lambda_c$.
+
+Como en~\eqref{eq:conversion}, telescopar tres factores acotados por $\overline K$, Cauchy--Schwarz y
+$|e^\alpha-e^\beta|\le\overline K|\alpha-\beta|$ dan $|\Phi_f(v^t)-\Phi_f(v)|\le\sqrt3\,\overline K^3\|v^t-v\|_\cH$,
+donde $\Phi_f$ es la integral de fibra de los otros tres factores normalizados, como en la
+Proposición~\ref{prop:conv_unif}. Los denominadores de las ecuaciones de
+filas y columnas son $x+b\Phi_f\ge b_-m_0\kappa^2$, y los diagonales son al menos uno. Sean
+\[
+ d_0=\min\{1,b_-m_0\kappa^2\},\qquad
+ L_*=\frac{2\overline B}{d_0}+\frac{2\sqrt{15}\,b_+\overline K^3\overline B}{d_0^2\lambda_c}.
+\]
+Si $y_f$ es el factor normalizado de la familia $f$, entonces $y_f^t(a_f+b\Phi_f(v^t))=1+\eta_f^t$ e
+$y_f(a_f+b\Phi_f(v))=1$, con $a_{R,C}=x$ y $a_{D,A}=1$, y comparando los recíprocos,
+$|y_f^t-y_f|\le L_*|t|$. La traslación de filas controla $R$, $D$ y $A$; la construcción simétrica, que
+traslada $C$ y mantiene $R$ idéntica, controla $C$.
+
+\begin{teorema}[Regularidad uniforme hasta el tablero lleno]\label{thm:lip_uniforme}
+Para todo $x\in[0,\frac12]$, con constantes independientes de $x$,
+\[
+ \|r_R\|_\infty,\|r_C\|_\infty\le\overline K,\quad \|u_D\|_\infty,\|u_A\|_\infty\le1,\quad
+ \Lip(r_R,r_C,u_D,u_A)\le L_*,
+\]
+\[
+ \|\nu\|_\infty\le\overline B,\quad \Lip_\infty\nu\le6b_+\overline K^2L_*,\quad
+ \|\Theta_x\|_\infty\le\overline K^2,\quad \Lip_\infty\Theta_x\le2\overline KL_* .
+\]
+\end{teorema}
+
+\begin{proof}
+La prueba anterior vale para $x\in(0,\frac12]$ y también en el límite $x=0$; alternativamente, las cotas
+pasan al límite por la convergencia uniforme. Para $\nu$, telescopar los cuatro factores cuesta a lo sumo
+$b_+\overline K^2L_*(|\Delta r|+|\Delta c|+|\Delta r-\Delta c|+|\Delta r+\Delta c|)\le6b_+\overline K^2L_*\|\Delta(r,c)\|_\infty$;
+el producto de los dos factores de $\Theta_x$ cuesta $2\overline KL_*$.
+\end{proof}
+
+El Teorema~\ref{thm:lip_uniforme} es la parte~(b) del Teorema~\ref{thm:lipschitz_intro}. No se afirma
+regularidad $C^1$ espacial.
