@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite this repository and the two papers whose values it reproduces."
+title: "Numerical verification: final layers and the variational profile of the n-queens problem"
+version: "1.0.0"
+license: MIT
+authors:
+  - family-names: "Mejia"
+    given-names: "Dilan Steven"
+references:
+  - type: article
+    title: "Completability of the final layers in the n-queens problem"
+    authors:
+      - family-names: "Mejia"
+        given-names: "Dilan Steven"
+    year: 2026
+    url: "https://github.com/Dilanst/n-queens-last-layers"
+  - type: article
+    title: "The variational profile of partial queen placements: existence, Euler equations, and regularity up to the full board"
+    authors:
+      - family-names: "Mejia"
+        given-names: "Dilan Steven"
+    year: 2026
+    url: "https://github.com/Dilanst/n-queens-variational-profile"

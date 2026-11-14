@@ -1,0 +1,49 @@
+\section{The function \texorpdfstring{$F$}{F} and the optimal value}\label{sec:F}
+
+The four factors $r_R,r_C,u_D,u_A$ carry information about each position. Averaging the product of the two diagonal vacancies with
+weight $r_R(r)\,r_C(c)$ gives a number $F(x)$ that depends only on the fraction of empty rows $x$. Integrating its logarithm recovers
+the optimal entropy at mass one.
+
+For $x\in(0,1)$ and $\rho=1-x$, the function $F$ is defined in~\eqref{eq:F}. Integrating $\nu=b\,r_Rr_Cu_Du_A$, with $b=\lambda x^2$
+and $\int\nu=1-x$, gives \begin{equation}\label{eq:F_integral}
+ \int_{[0,1]^2}\Theta_x\,u_D(r-c)\,u_A(r+c)\,dr\,dc=\frac{1-x}{b}=F(x),\qquad \Theta_x=r_Rr_C .
+\end{equation} The weight $\Theta_x$ integrates to one. The equality is an algebraic consequence of the Euler equation.
+
+\begin{teorema}[Analyticity of $F$]\label{thm:F} The function $F$ extends to a positive real-analytic function on a neighborhood of
+$[0,1]$, with $F(0)=1/b_0$ and $F(1)=1$. \end{teorema}
+
+\begin{proof} Near $x=0$, $F(x)=(1-x)/b_x$ with $b_x=e^{\gamma(x)}$ analytic (Theorem~\ref{thm:rama}), and $F(0)=1/b_0>0$. On $0<x<1$,
+$\lambda$ is analytic in $\rho$ (Proposition~\ref{prop:interior}), and \eqref{eq:F} gives the analyticity of $F$. Near $x=1$,
+Proposition~\ref{prop:diluido} gives $\lambda(1-x)=(1-x)A(1-x)$, so that \[
+ F(x)=\frac1{A(1-x)\,x^2},\qquad F(1)=1 .
+\] The three expressions agree wherever their domains overlap, since they all come from the same maximizers. Since $F>0$ on $(0,1)$,
+$F(0)>0$, and $F(1)=1$, compactness shows that $F$ is positive on a neighborhood of $[0,1]$, after shrinking the neighborhood if necessary.
+\end{proof}
+
+\begin{proposicion}[The optimal value at mass one]\label{prop:intlogF} \[
+ \int_0^1\log F(x)\,dx=1+\sopt(1).
+\] \end{proposicion}
+
+\begin{proof} For $x\in(0,1)$ and $\rho=1-x$, Theorem~\ref{thm:max}(d) gives $\lambda=e^{-\sopt{}'(\rho)}$, so that \[
+ \log F(1-\rho)=\log\rho+\sopt{}'(\rho)-2\log(1-\rho).
+\] Moreover, $\sopt(\rho)\to0$ as $\rho\downarrow0$. Indeed, $G(m)\le m$ on $[0,1]$ because $-\log(1-m)\le m/(1-m)$. By Jensen's
+inequality and Lemma~\ref{lem:fubini}, $s[\nu]\le-3\rho-\rho\log\rho+\sum_f\int m_f=\rho-\rho\log\rho$ on $\cA_\rho$, and the constant
+density gives $\sopt(\rho)\ge-3\rho-\rho\log\rho$ because $G\ge0$. By Proposition~\ref{prop:masa_uno}, $\sopt(\rho)\to\sopt(1)$ as
+$\rho\uparrow1$. Since $\log F$ is bounded on $[0,1]$ (Theorem~\ref{thm:F}), we integrate over $[\varepsilon,1-\varepsilon]$ and let
+$\varepsilon\to0$. The terms $\log\rho$ and $-2\log(1-\rho)$ contribute $-1$ and $2$, respectively, and
+$\int_\varepsilon^{1-\varepsilon}\sopt{}'=\sopt(1-\varepsilon)-\sopt(\varepsilon)\to\sopt(1)$. \end{proof}
+
+\begin{proposicion}[Expansion at the full board]\label{prop:borde} As $x\downarrow0$, \[
+ \sopt(1-x)-\sopt(1)=2x\log\frac1x+O(x).
+\] \end{proposicion}
+
+\begin{proof} For $\rho=1-y$ with $0<y\le\frac12$, we have $\sopt{}'(\rho)=-\log\lambda=2\log y-\log b_y$, and $|\log
+b_y|\le\max\{\log2,\log b_+\}$ by Proposition~\ref{prop:cotas}. Since $\sopt(\rho)\to\sopt(1)$ (Proposition~\ref{prop:masa_uno}) and
+$\log y$ is integrable, \[
+ \sopt(1)-\sopt(1-x)=\int_0^x\bigl(2\log y-\log b_y\bigr)\,dy=2x\log x-2x+O(x),
+\] which is the stated expansion. \end{proof}
+
+\begin{observacion}\label{obs:borde_fino} Since $b$ is analytic at $x=0$ (Theorem~\ref{thm:rama}), $\log b_y=\log b_0+O(y)$, and the
+same calculation gives $\sopt(1-x)-\sopt(1)=2x\log\frac1x+\bigl(2-\log F(0)\bigr)x+O(x^2)$ because $F(0)=1/b_0$. \end{observacion}
+
+Theorem~\ref{thm:F} and Propositions~\ref{prop:intlogF} and~\ref{prop:borde} complete the proof of Theorem~\ref{thm:F_intro}.

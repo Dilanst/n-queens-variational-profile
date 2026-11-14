@@ -1,0 +1,39 @@
+\section{The full-board limit}\label{sec:limite}
+
+The bounds in the preceding section keep the rescaled factors bounded and bounded away from zero. It remains to identify their limit.
+We first determine the optimal density of mass one. The row and column normalizations then allow us to recover its individual factors.
+
+\begin{proposicion}[The problem at mass one]\label{prop:masa_uno} The supremum of $s$ over $\cA_1$ is finite and is attained at a
+unique density $\nu_1$ of finite entropy. Moreover, $\sopt(\rho)\to\sopt(1)$ as $\rho\uparrow1$. \end{proposicion}
+
+\begin{proof} By Remark~\ref{obs:slater}, $\nu^\sharp\in\cA_1$ and $s[\nu^\sharp]>-\infty$, and by Lemma~\ref{lem:elementales}(c),
+$s\le6/e$ on $\cA_1$. The proof of existence and uniqueness is the same as in Step~1 of the proof of Theorem~\ref{thm:max}, which does
+not use $\rho<1$. No Euler equation at mass one is needed. For the limit superior, let $\rho_j\uparrow1$. The entropies of the
+$\nu_{\rho_j}$ are bounded (since $\sopt(\rho_j)\ge s[\rho_j\nu^\sharp]$, which is bounded below), every subsequence has a further
+subsequence that converges weakly in $L^1$ to some $\bar\nu\in\cA_1$ (as in the proof of Proposition~\ref{prop:continuidad}), and weak
+upper semicontinuity gives $\limsup\sopt(\rho_j)\le s[\bar\nu]\le\sopt(1)$. For the limit inferior, $\rho\nu_1\in\cA_\rho$ and \[
+ \sopt(\rho)\ge s[\rho\nu_1]=-3\rho-\rho\log\rho-\rho\int\nu_1\log\nu_1+\sum_f\int_{I_f}G(\rho\,m_f[\nu_1]),
+\] which tends to $s[\nu_1]=\sopt(1)$ by dominated convergence, since $G$ is continuous and bounded. \end{proof}
+
+\begin{proposicion}[Convergence in $L^2$]\label{prop:conv_L2} As $x\downarrow0$, $\nu_{1-x}\to\nu_1$ in $L^2([0,1]^2)$ and
+$c_\nu\le\nu_1\le C_\nu$. Moreover, $u_{D,x}\to u_{D,0}=1-m_D[\nu_1]$ and $u_{A,x}\to u_{A,0}=1-m_A[\nu_1]$ in $L^2$, $b_x\to
+b_0\in[\frac12,b_+]$, and $r_{R,x}\to r_{R,0}$, $r_{C,x}\to r_{C,0}$ in $L^2$, with $\nu_1=b_0\,r_{R,0}\,r_{C,0}\,u_{D,0}\,u_{A,0}$
+almost everywhere. \end{proposicion}
+
+\begin{proof} By Proposition~\ref{prop:cotas}, the $\nu_\rho$ with $\rho\ge\frac12$ are bounded by $C_\nu$, so every sequence
+$\rho_j\uparrow1$ has a subsequence converging weakly in $L^2$ to some $\bar\nu\in\cA_1$ with $c_\nu\le\bar\nu\le C_\nu$. By weak upper
+semicontinuity and Proposition~\ref{prop:masa_uno}, $s[\bar\nu]\ge\limsup\sopt(\rho_j)=\sopt(1)$, and by uniqueness $\bar\nu=\nu_1$.
+Thus $\nu_\rho\rightharpoonup\nu_1$ and $\nu_1$ inherits the bounds. The convergence is strong. Indeed, $-z\log z$ has second
+derivative $-1/z\le-1/C_\nu$ on $(0,C_\nu]$ and the other terms of $s$ are concave, so \[
+ s\Bigl[\frac{\nu_\rho+\nu_1}2\Bigr]\ge\frac{\sopt(\rho)+\sopt(1)}2+\frac{\|\nu_\rho-\nu_1\|_2^2}{8C_\nu}.
+\] The left-hand side is at most $\sopt(\frac{1+\rho}2)\to\sopt(1)$, and hence $\|\nu_\rho-\nu_1\|_2\to0$.
+
+The projections are bounded operators from $L^2([0,1]^2)$ to $L^2(I_f)$ by Cauchy--Schwarz on fibers of length at most one. Hence
+$u_{D,x}$ and $u_{A,x}$ converge in $L^2$, and the limits retain the bound $\kappa\le u\le1$. Lifting a line profile to the square does
+not increase its $L^2$ norm, and the two-sided bounds ensure that products and quotients preserve convergence in $L^2$. Thus $K_x\to
+K_0=u_{D,0}(r-c)\,u_{A,0}(r+c)$ and $V_x=\nu_{1-x}/K_x=b_x\,r_{R,x}\,r_{C,x}$ converges in $L^2$ to $V_0=\nu_1/K_0$. The identities
+\begin{equation}\label{eq:identidades_V}
+ b_x=\int_{[0,1]^2}V_x,\qquad r_{R,x}=T_RV_x/b_x,\qquad r_{C,x}=T_CV_x/b_x,
+\end{equation} which follow from $\int r_R=\int r_C=1$, give $b_x\to b_0=\int V_0\in[\frac12,b_+]$ and the convergence in $L^2$ of
+$r_{R,x}$ and $r_{C,x}$ to $r_{R,0}=T_RV_0/b_0$ and $r_{C,0}=T_CV_0/b_0$, respectively. Passing to the limit in
+$V_x=b_x\,r_{R,x}\,r_{C,x}$ gives $V_0=b_0\,r_{R,0}\,r_{C,0}$, and finally $\nu_1=K_0V_0=b_0\,r_{R,0}\,r_{C,0}\,K_0$. \end{proof}

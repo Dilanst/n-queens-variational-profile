@@ -1,0 +1,51 @@
+\section{Existence, uniqueness, and the Euler equation}\label{sec:euler}
+
+At fixed mass, both the density and its four projections contribute to the entropy. Strict concavity of the term $-\int\nu\log\nu$
+ensures that there is at most one maximizer. To determine its form, we first prove that it exists and that no capacity constraint is
+saturated on a set of positive measure. We can then vary the density and derive the Euler equation.
+
+\begin{teorema}\label{thm:max} Let $0<\rho<1$. \begin{enumerate}[(a)] \item $s$ attains its supremum over $\cA_\rho$ at a unique
+density $\nu_\rho$. \item There exists $\theta=\theta(\rho)\in\mathbb R$ such that $\nu_\rho=e^{-\theta}\,\Pi[\nu_\rho]$ almost
+everywhere. \item Let $\lambda=e^{-\theta}$ (the \emph{activity}). All four projections of $\nu_\rho$ are $\le\lambda/(1+\lambda)$, and
+we have $\lambda(1+\lambda)^{-4}\le\nu_\rho\le\lambda$ and $\rho=\lambda\int\Pi[\nu_\rho]$. \item For every $\rho'\in(0,1)$,
+$\sopt(\rho')\le\sopt(\rho)+\theta(\rho)(\rho'-\rho)$. In particular, $\sopt$ is concave, $\theta$ is nonincreasing, and $\lambda$ is
+nondecreasing. Moreover, $\sopt$ is differentiable, with $\sopt{}'=\theta$, and $\theta$ is continuous. \end{enumerate} \end{teorema}
+
+\begin{proof} We write $\nu^*=\nu_\rho$ and denote its projections and vacancies by $m^*_f$ and $u^*_f$, respectively.
+
+\emph{Step 1. Existence and uniqueness.} Let $(\nu_k)\subset\cA_\rho$ with $s[\nu_k]\to\sopt(\rho)$. Since the line terms are bounded
+by $6/e$, $\int\nu_k\log\nu_k$ is bounded. By the de la Vallée-Poussin and Dunford--Pettis criteria~\cite{Bogachev}, a subsequence
+converges weakly in $L^1$ to some $\nu^*$. The set $\cA_\rho$ is convex and closed in $L^1$, hence weakly closed, and
+$\nu^*\in\cA_\rho$. The functional $s$ is concave and upper semicontinuous in $L^1$. For the entropy this follows from Fatou's lemma,
+since $z\log z\ge-1/e$. The line terms are continuous by dominated convergence, since $G$ is continuous and bounded. By Mazur's lemma
+its hypograph is weakly closed~\cite{Brezis}, so $s[\nu^*]\ge\limsup s[\nu_k]=\sopt(\rho)$. Uniqueness follows from strict concavity of
+the entropy.
+
+\emph{Step 2. One-sided derivatives.} Let $\nu\in\cA_\rho$ with $s[\nu]>-\infty$ and $\varphi(t)=s[\nu^*+t(\nu-\nu^*)]$, $t\in[0,1]$.
+This function is concave and attains its maximum at $t=0$, so $\varphi'(0^+)\le0$. Each term of $s$ is concave in $t$. Its difference
+quotients at $0$ increase as $t\downarrow0$ and are bounded below by the quotient at $t=1$, which is integrable. By monotone
+convergence, with $\log0=-\infty$, \[
+ \varphi'(0^+)=-\int(\nu-\nu^*)(\log\nu^*+1)+\sum_f\int_{I_f}(m_f-m^*_f)\bigl(\log u^*_f+1\bigr),
+\] where each term lies in $(-\infty,+\infty]$. The term $-3\rho$ makes no contribution because the masses are equal.
+
+\emph{Step 3. $\nu^*>0$ and $m^*_f<1$ almost everywhere.} Take $\nu\equiv\rho$. If $\{\nu^*=0\}$ had positive measure, the first
+integrand would equal $+\infty$ there and $\varphi'(0^+)=+\infty$. If $\{m^*_f=1\}$ had positive measure, the term for the family $f$
+would equal $+\infty$ because the projections of $\nu\equiv\rho$ are less than one. Both conclusions contradict $\varphi'(0^+)\le0$.
+
+\emph{Step 4. Integrability.} With $\nu\equiv\rho$, each term in $\varphi'(0^+)$ is finite, since all of them are $>-\infty$ and their
+sum is $\le0$. In the term involving $f$, the integrand on the set where $m^*_f>\max\{(1+\rho)/2,\,1-1/e\}$ is $\ge\frac{1-\rho}2(-\log
+u^*_f-1)\ge0$, and it is bounded elsewhere. Thus $\int_{I_f}m^*_f|\log u^*_f|<\infty$. We also have $\int\nu^*|\log\nu^*|<\infty$
+because the entropy of $\nu^*$ is finite. Let \[
+ W=-\log\nu^*+\sum_f\log\bigl(u^*_f\circ\ell_f\bigr),
+\] which is finite almost everywhere. By the preceding argument and Lemma~\ref{lem:fubini}, $\nu^*W\in L^1$. Set
+$\theta=\rho^{-1}\int\nu^*W$. If $\int\nu|\log\nu^*|$ and the $\int\nu|\log u^*_f\circ\ell_f|$ are finite, the terms in Step~2 can be
+transferred to the square, and the constants cancel because the masses are equal, giving $\varphi'(0^+)=\int(\nu-\nu^*)W$.
+
+\emph{Step 5. $W\le\theta$ almost everywhere.} Otherwise, there exist $\varepsilon,\gamma>0$ and $N<\infty$ such that the set $E$ of
+points satisfying $\theta+\varepsilon<W\le N$ and whose four projection lines satisfy $m^*_f\le1-\gamma$ has positive measure, since
+$W$ is finite and $m^*_f\circ\ell_f<1$ almost everywhere. On $E$, we have $|\log\nu^*|\le|\theta|+\varepsilon+|N|+4\log\frac1\gamma$
+and $|\log u^*_f\circ\ell_f|\le\log\frac1\gamma$. Let $g=\frac\rho{|E|}\ind_E$ and $\nu_\tau=(1-\tau)\nu^*+\tau g$. If a line meets
+$E$, the projection of $\nu^*$ onto it is $\le1-\gamma$ and that of $g$ is $\le\rho/|E|$. If the line does not meet the set, $g$ makes
+no contribution. Thus $\nu_\tau\in\cA_\rho$ for $\tau\le\gamma|E|/\rho$, with $s[\nu_\tau]>-\infty$, and Step~4 gives \[
+ \varphi'(0^+)=\tau\Bigl(\frac\rho{|E|}\int_EW-\int\nu^*W\Bigr)\ge\tau\bigl(\rho(\theta+\varepsilon)-\rho\theta\bigr)>0,
+\] contradicting $\varphi'(0^+)\le0$.

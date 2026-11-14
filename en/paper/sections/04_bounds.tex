@@ -1,0 +1,66 @@
+\section{Bounds near the full board}\label{sec:cotas}
+
+As long as the mass stays away from one, the activity controls the density and the vacancies. Near the full board, this bound grows
+with $\lambda$. We use the strictly admissible density $\nu^\sharp$ of Remark~\ref{obs:slater}, which fills the rows and columns and
+retains capacity in both diagonal directions. It lets us control each factor in the variables of~\eqref{eq:reescala}.
+
+Throughout this section, $\frac12\le\rho<1$, $x=1-\rho\in(0,\frac12]$, $\nu=\nu_\rho$, $\lambda=\lambda(\rho)$, and the vacancies are
+the continuous representatives from Lemma~\ref{lem:vacancias}. We index the density by the mass ($\nu_\rho$, $\nu_1$) and the rescaled
+profile~\eqref{eq:reescala} by $x$. We write $(b_x,r_{R,x},r_{C,x},u_{D,x},u_{A,x})$ when we need to specify $x$. In the rescaled
+profile and in $K_0$, $V_0$, and $\Phi_{f,0}$ (Section~\ref{sec:limite}), the subscript $0$ denotes the limit $x=0$. Using the density
+$\nu^\sharp$ from Remark~\ref{obs:slater}, we fix \[
+ \kappa_0=\frac1{10},\qquad M_0=\frac65,\qquad
+ L_0=\frac2{\kappa_0}\Bigl\{M_0+\frac1e+4\log\frac2{\kappa_0}\Bigr\}+4\log\frac2{\kappa_0},
+\] so that $\nu^\sharp\le M_0$ and $m_D[\nu^\sharp],m_A[\nu^\sharp]\le1-\kappa_0$.
+
+\begin{lema}[Control of the diagonal logarithms]\label{lem:log_diag} $\displaystyle \mathcal L_\rho:=\int_{I_D}-\log
+u_D+\int_{I_A}-\log u_A\le L_0$. \end{lema}
+
+\begin{proof} The density $\rho\nu^\sharp$ belongs to $\cA_\rho$. By the Euler equation, $-\log\nu+\sum_f\log u_f\circ\ell_f$ is
+constant. Integrating it against $\nu-\rho\nu^\sharp$, which has zero mass, and using Lemma~\ref{lem:fubini} yields the exact identity
+\begin{equation}\label{eq:identidad_entropia}
+ 0=-\int\rho\nu^\sharp\log\nu+\int\nu\log\nu+\sum_f\int_{I_f}\bigl(m_f-\rho\,m_f[\nu^\sharp]\bigr)(-\log u_f),
+\end{equation} whose terms are finite by Theorem~\ref{thm:max}(c). The entropy contribution is at least $-M_0-1/e$. Where $\nu>1$, we
+use $\log\nu\le\nu$ to get $-\int\rho\nu^\sharp\log\nu\ge-\rho M_0\int\nu\ge-M_0$, and Jensen's inequality gives
+$\int\nu\log\nu\ge\rho\log\rho\ge-1/e$. For a row or column, $m_f[\nu^\sharp]=1$ and $\int u_f=x$, so
+\begin{equation}\label{eq:covarianza}
+ \int(m_f-\rho)(-\log u_f)=\int(u_f-x)\log u_f\ge0 ;
+\end{equation} the inequality expresses the nonnegative covariance of a function and its logarithm, since it amounts to integrating
+$(u_f(t)-u_f(t'))(\log u_f(t)-\log u_f(t'))\ge0$. On a diagonal or antidiagonal, wherever $u_f\le\kappa_0/2$ we have
+$m_f-\rho\,m_f[\nu^\sharp]\ge(1-\frac{\kappa_0}2)-(1-\kappa_0)=\frac{\kappa_0}2$. Elsewhere the integrand is at least
+$-\log(2/\kappa_0)$. The two diagonal intervals have total length four. It follows
+from~\eqref{eq:identidad_entropia}--\eqref{eq:covarianza} that $\frac{\kappa_0}2\int_{\{u\le\kappa_0/2\}}(-\log u)\le
+M_0+\frac1e+4\log\frac2{\kappa_0}$, where the integral runs over both families, and on $\{u>\kappa_0/2\}$ the integral of $-\log u$ is
+at most $4\log(2/\kappa_0)$. Adding gives $\mathcal L_\rho\le L_0$. \end{proof}
+
+With the rescaling~\eqref{eq:reescala} and $K(r,c)=u_D(r-c)\,u_A(r+c)$, we have $\int r_R=\int r_C=1$ because $\int u_R=\int u_C=x$,
+and $\nu=b\,r_Rr_CK$. The formulas in Lemma~\ref{lem:vacancias} become \begin{equation}\label{eq:filas}
+ r_R=\frac1{x+b\int_0^1r_CK\,dc},\qquad r_C=\frac1{x+b\int_0^1r_RK\,dr},
+\end{equation} \begin{equation}\label{eq:diagonales}
+ u_D=\frac1{1+b\int_{\ell_D}r_Rr_Cu_A},\qquad u_A=\frac1{1+b\int_{\ell_A}r_Rr_Cu_D},
+\end{equation} where $\int_{\ell_f}$ denotes integration over the fiber of $f$ with respect to the parameter measure.
+
+\begin{proposicion}[Two-sided bounds]\label{prop:cotas} Let $M=2e^{L_0}$, $b_+=e^{L_0}M^2$, and $\kappa=(1+b_+M^2)^{-1}$. For every
+$x\in(0,\frac12]$, \[
+ \tfrac12\le b\le b_+,\qquad \frac1{1+b_+}\le r_R,r_C\le M,\qquad \kappa\le u_D,u_A\le1,\qquad
+ c_\nu\le\nu\le C_\nu,
+\] with $c_\nu=\kappa^2/(2(1+b_+)^2)$ and $C_\nu=b_+M^2$. \end{proposicion}
+
+\begin{proof} We use a geometric normalization. Set $g_R=\exp\int\log r_R$, $g_C=\exp\int\log r_C$, $R=r_R/g_R$, $C=r_C/g_C$, and
+$B=b\,g_Rg_C$. Then $\int\log R=\int\log C=0$, $0<g_R,g_C\le1$ by Jensen's inequality, and $\nu=BRCK$. Along each row, the two diagonal
+coordinates range over subintervals of $I_D$ and $I_A$ with unit Jacobian. Since $-\log u\ge0$, Lemma~\ref{lem:log_diag} gives
+$\int_0^1\log K(r,c)\,dc\ge-L_0$, and the same holds for each column. By Jensen's inequality, $\int_0^1C\,K(r,\cdot)\ge e^{-L_0}$ and
+$\int_0^1R\,K(\cdot,c)\ge e^{-L_0}$. Since $m_R=BR\int CK\le1$ and $m_C\le1$, \begin{equation}\label{eq:cota_RC}
+ R,\ C\le e^{L_0}/B .
+\end{equation} Moreover, $\int\nu\log R=\int_0^1m_R\log R=\int_0^1(1-xr_R)\log R=-x\int r_R\log R\le0$ because $\int r_R\log R=\int
+r_R\log r_R-\log g_R\ge0$. The same holds for $C$. From $\log\nu=\log B+\log R+\log C+\log K$ and $K\le1$ we obtain \[
+ \rho\log B=\int\nu\log\nu-\int\nu\log K-\int\nu\log R-\int\nu\log C\ \ge\ \rho\log\rho .
+\] On the other hand, integrating $\log\nu$ with respect to area and applying Jensen's inequality gives $\log B+\int\log
+K\le\log\rho\le0$, and $\int_{[0,1]^2}\log K\ge-L_0$. In summary, \begin{equation}\label{eq:cota_B}
+ \tfrac12\le B\le e^{L_0}.
+\end{equation} By~\eqref{eq:cota_RC}, $R,C\le M$. Since $1=\int r_R=g_R\int R$, we have $g_R,g_C\ge1/M$. Hence
+$b=B/(g_Rg_C)\in[\frac12,b_+]$ and $r_R=g_RR\le M$, $r_C\le M$. The lower bound for $r_R$ and $r_C$ follows from~\eqref{eq:filas}, with
+$K\le1$ and $\int r=1$. Since each fiber has length at most one,~\eqref{eq:diagonales} gives $u_D,u_A\ge\kappa$. The bounds for
+$\nu=b\,r_Rr_CK$ follow directly. \end{proof}
+
+The lower bound $\kappa$ for the diagonal vacancies has been proved, not assumed. The explicit constants are too conservative to be of numerical use.

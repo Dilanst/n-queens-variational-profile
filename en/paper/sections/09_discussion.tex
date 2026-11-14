@@ -1,0 +1,47 @@
+\section{Numerical values and scope}\label{sec:discusion}
+
+\subsection{Numerical values}
+
+Table~\ref{tab:numerica} reports a deterministic numerical solution of the rescaled Euler system. We use Newton's method on spatial
+grids of $64$, $128$, and $256$ points with tolerance $3\cdot10^{-12}$, a grid in $x$ of spacing $0.01$ with additional nodes, natural
+spline interpolation, and Simpson's rule for $\int\log F$. The derivative $F'(0)$ is obtained by implicit differentiation of the
+discretized system. The maximum difference between the curves for the grids of $256$ and $128$ points, measured at $1001$ nodes, is
+$1.085\cdot10^{-5}$. The maximum Newton residual is $2.607\cdot10^{-12}$. The slope obtained by implicit differentiation and the
+centered difference with step $10^{-4}$ at $x=0$ on the grid of $256$ points differ by $4.63\cdot10^{-9}$. Nobel, Agrawal, and
+Boyd~\cite{NAB} also use Newton's method for the discretized problem at mass one.
+
+\begin{table}[ht] \centering \begin{tabular}{lrrr}
+\toprule
+Grid & $F(0)$ & $F'(0)$ & $\int_0^1\log F$\\
+\midrule
+$64$ & $0.08086911055$ & $0.5157082194$ & $-0.9441617254$\\
+$128$ & $0.08090292111$ & $0.5157547494$ & $-0.9440411866$\\
+$256$ & $0.08091137290$ & $0.5157663849$ & $-0.9440110586$\\
+\midrule
+Richardson & $0.080914$ & $0.515770$ & $-0.944001$\\
+\bottomrule
+\end{tabular} \caption{Numerical values of the function $F$. The differences between successive grids decrease by a factor close to
+four, consistent with second-order convergence. The last row gives the Richardson extrapolation of that order from the grids of $128$
+and $256$ points, calculated from the preceding rows. These are numerical values, not certified by interval arithmetic.} \label{tab:numerica}
+\end{table}
+
+By Proposition~\ref{prop:intlogF}, $\sopt(1)=\int_0^1\log F-1\approx-1.9440$. The value $-\sopt(1)\approx1.9440$ lies in the interval
+$\alpha=1.942\pm3\cdot10^{-3}$ from~\cite{Simkin}, and the extrapolated value $-\sopt(1)\approx1.944001$ lies in the interval
+$[1.944000752,\,1.944001082]$ from~\cite{NAB}. Remark~\ref{obs:simkin} explains the normalization that allows the two quantities to be
+compared. The agreement of the decimal digits serves as a numerical check. The extrapolations using grids $(64,128)$ and $(128,256)$
+differ by less than $10^{-8}$. The quadrature error in $x$ has not been estimated. \ifx\DOIcodigo\empty\else A program that reproduces
+these values by another method, a fixed-point iteration, is available in~\cite{Codigo}. Its results differ from the table by less than
+$10^{-8}$. \fi Using Monte Carlo simulation on boards of size $1024\times1024$, Liu, Liao, and Wang~\cite{LLW} estimate
+$\alpha\approx1.946\pm0.003$ by integrating the specific heat starting at infinite temperature.
+
+\subsection{Interpretation at the full board}
+
+When $x=0$, the row and column vacancies vanish. The factors $r_{R,0}$ and $r_{C,0}$ describe the limiting row and column vacancy
+densities, respectively, each normalized to mass one. Together with the limiting diagonal vacancies and the factor $b_0$, they
+determine $\nu_1$ by Theorem~\ref{thm:lleno}. The spatial regularity obtained is Lipschitz, with a common bound for $0\le x\le 1/2$.
+Analyticity describes a different dependence, that of the profiles on the parameter $x$.
+
+All statements in this paper concern the continuous problem. The constants in Sections~\ref{sec:cotas} and~\ref{sec:regularidad} are
+explicit but too conservative for numerical use. Table~\ref{tab:numerica} estimates $F(0)$ by solving the continuous system. The
+identity $F(0)=1/b_0$ follows from Theorem~\ref{thm:F}. Interpreting this value as a frequency on finite boards also requires
+specifying the probability law on placements and justifying the passage from the discrete model to the continuous one.

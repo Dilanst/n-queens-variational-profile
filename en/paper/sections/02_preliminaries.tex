@@ -1,0 +1,59 @@
+\section{Preliminaries}\label{sec:preliminares}
+
+\subsection{Projections and fibers}
+
+We extend each integrable density $\nu\ge0$ on $[0,1]^2$ by zero outside the square. Its projections (or line densities) are \begin{gather*}
+ m_R(r)=\int_0^1\nu(r,c)\,dc,\qquad m_C(c)=\int_0^1\nu(r,c)\,dr,\\
+ m_D(d)=\int\nu(r,r-d)\,dr,\qquad m_A(s)=\int\nu(r,s-r)\,dr,
+\end{gather*} defined almost everywhere on $I_R,I_C,I_D,I_A$. We also write $T_f\nu=m_f$. The \emph{fiber} of $f$ over $t\in I_f$ is
+$\{\ell_f=t\}\cap[0,1]^2$, with parameter measure $dc$ for rows and $dr$ for the other families, omitting the factor $\sqrt2$ in
+Euclidean length. Each fiber has parameter length at most one. The diagonal $d$ has length $1-|d|$ and the antidiagonal $s$ has
+length $1-|s-1|$.
+
+\begin{lema}\label{lem:fubini} For every measurable $g\ge0$ on $I_f$, $\int_{[0,1]^2}\nu\,(g\circ\ell_f)=\int_{I_f}m_f\,g$. In
+particular, $\int_{I_f}m_f=\int\nu$ for all four families, and $\|T_f\nu-T_f\nu'\|_{L^1(I_f)}\le\|\nu-\nu'\|_{L^1}$. \end{lema}
+
+\begin{proof} This follows from Fubini's theorem using the changes of variables $(r,c)\mapsto(r,\ell_f(r,c))$ or
+$(r,c)\mapsto(c,\ell_f(r,c))$, each with unit Jacobian. \end{proof}
+
+The constant density $\nu=\rho$ illustrates these integrals in Figure~\ref{fig:tablero-fibras}(b). The central diagonal carries mass
+$\rho$ per unit of diagonal coordinate, whereas the diagonal at $r-c=1/2$ carries $\rho/2$ because its interval of row coordinates is
+half as long. Thus even for a constant density on the square, the diagonal projection varies with position.
+
+\subsection{The admissible class and the functional}
+
+The vacancies are $u_f=1-m_f$. For $\rho\in(0,1]$, $\cA_\rho$ is the set of densities $\nu\ge0$ with $\int\nu=\rho$ and $m_f\le1$
+almost everywhere for all four families. By Lemma~\ref{lem:fubini}, $\int u_R=\int u_C=1-\rho$ and $\int u_D=\int u_A=2-\rho$. With
+$G(z)=-(1-z)\log(1-z)$ on $[0,1]$ and $0\log0=0$, the functional~\eqref{eq:funcional} takes the form \[
+ s[\nu]=-3\rho-\int\nu\log\nu+\sum_f\int_{I_f}G(m_f),
+\] with $s[\nu]=-\infty$ if $\int\nu\log\nu=+\infty$. The function $G$ is concave and continuous, and $0\le G\le1/e$. We write \[
+ \Pi[\nu](r,c)=\prod_f\bigl(1-m_f(\ell_f(r,c))\bigr)=\prod_fu_f(\ell_f(r,c)).
+\]
+
+\begin{lema}[Elementary properties]\label{lem:elementales} \begin{enumerate}[(a)] \item $\cA_\rho$ is convex and closed in $L^1$, and
+$s$ is concave on $\cA_\rho$. The term $-\int\nu\log\nu$ is strictly concave. \item For $\rho<1$, the constant density $\rho$ belongs
+to $\cA_\rho$, with projections $\rho$, $\rho$, $\rho(1-|d|)$, and $\rho(1-|s-1|)$. \item $s\le-\rho\log\rho+6/e$ on $\cA_\rho$. In
+particular, $\sopt(\rho)<\infty$. \end{enumerate} \end{lema}
+
+\begin{proof} (a) The mass and the projections are linear. Closedness follows from Lemma~\ref{lem:fubini}. Concavity of $G$ and $-z\log
+z$ gives concavity of $s$. (b) This follows by direct calculation. (c) By Jensen's inequality, $-\int\nu\log\nu\le-\rho\log\rho$, and
+the domains of the four families have total length six, with $G\le1/e$. \end{proof}
+
+\begin{observacion}[Relation to Simkin's problem]\label{obs:simkin} For $\rho=1$, the row and column projections equal one and
+$u_R=u_C=0$, so that $s[\nu]=-3-\int\nu\log\nu-\int u_D\log u_D-\int u_A\log u_A$. After translating the square to
+$[-\frac12,\frac12]^2$, the diagonal vacancies are densities with integral one on intervals of length two, and the divergence of each
+from the uniform distribution on $[-1,1]$ equals $\int u\log u+\log2$. In Definition~2.9 of~\cite{Simkin}, the two constants $\log2$
+cancel the term $2\log2$. This gives the same expression for the entropy on admissible densities of mass one. Remark~2.7 of that
+reference distinguishes the class of measures defined by the projection constraints from the class defined by closure and specifies
+their relation for absolutely continuous measures. By Section~2.2 of~\cite{Simkin} (Theorem~2.24, applied to the entire class defined
+by closure, and Lemma~2.22), $-\alpha$ is the maximum of that entropy over the latter class. The correspondence above and the cited
+Remark~2.7 would then imply $\alpha=-\sopt(1)$. We do not use this identity here. The comparison of constants in
+Section~\ref{sec:discusion} is numerical. \end{observacion}
+
+\begin{observacion}[A strictly admissible density of mass one]\label{obs:slater}\leavevmode\par\noindent The density $\nu^\sharp(r,c)=1-\frac15\cos(2\pi
+r)\cos(2\pi c)$ satisfies $\frac45\le\nu^\sharp\le\frac65$ and has row and column projections identically equal to one. For $0\le
+d\le1$, \[
+ m_D[\nu^\sharp](d)=1-d-\frac15\Bigl[\frac{1-d}2\cos(2\pi d)-\frac{\sin(2\pi d)}{4\pi}\Bigr],
+\] whose derivative is $-1+\frac15[\cos(2\pi d)+\pi(1-d)\sin(2\pi d)]\le-1+\frac{1+\pi}5<0$. Since $m_D[\nu^\sharp](0)=\frac9{10}$, we
+obtain $m_D[\nu^\sharp]\le\frac9{10}$. By symmetry, the same holds for $d<0$ and for the antidiagonal family. In particular,
+$\nu^\sharp\in\cA_1$ and $s[\nu^\sharp]>-\infty$. \end{observacion}

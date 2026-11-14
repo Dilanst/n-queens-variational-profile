@@ -1,0 +1,39 @@
+\section{Analyticity in the interior and at the dilute endpoint}\label{sec:analiticidad}
+
+We already know the rescaled branch near $x=0$. To cover the whole family, it remains to study its dependence on mass in the interior
+and near the empty board, the \emph{dilute endpoint}, which corresponds to $\rho=0$ or, equivalently, to $x=1$.
+
+By Proposition~\ref{prop:concava}, $\rho\mapsto\lambda(\rho)$ is a continuous increasing bijection from $(0,1)$ onto $(0,\infty)$. We
+denote its inverse by $\rho(\lambda)$ and the space in Section~\ref{sec:limite} by $X$.
+
+\begin{proposicion}[Interior]\label{prop:interior} The maps $\rho\mapsto\lambda(\rho)$ and $\rho\mapsto(\log u_R,\log u_C,\log u_D,\log
+u_A)\in X$ are real analytic on $(0,1)$. With $\tau=\log\lambda$, $h_f=\partial_\tau\log u_f$, and $w=1+\sum_fh_f\circ\ell_f$,
+\begin{equation}\label{eq:derivada_actividad}
+ \frac{d\rho}{d\log\lambda}=\int_{[0,1]^2}\nu\,w^2+\sum_f\int_{I_f}u_fh_f^2>0 .
+\end{equation} \end{proposicion}
+
+\begin{proof} Fix $\tau_0=\log\lambda_0$ and use the unknowns $v=(\log u_f)_f\in X$ and the system
+$u_f+T_f\bigl(e^\tau\prod_gu_g\circ\ell_g\bigr)-1=0$, which the maximizer at activity $\lambda_0$ satisfies. Its derivative with
+respect to $v$ is $h\mapsto\bigl(u_fh_f+T_f(\nu\sum_gh_g\circ\ell_g)\bigr)_f$. The part acting on $h_f$ itself is $(u_f+m_f)h_f=h_f$, and the
+operators coupling distinct families are compact, as in the proof of Theorem~\ref{thm:rama}. If $h$ belongs to the kernel and
+$w=\sum_gh_g\circ\ell_g$, multiplying component $f$ by $h_f$, integrating, and summing gives $\int\nu w^2+\sum_f\int u_fh_f^2=0$. By
+positivity, the kernel is trivial. Since the index is zero, the analytic implicit function theorem gives an analytic branch
+$\tau\mapsto v(\tau)$ near $\tau_0$. By Proposition~\ref{prop:continuidad}(b), continuity of $\rho(\lambda)$, and the bound
+$u_f\ge1/(1+\lambda)$, the fields of the maximizers depend continuously on $\lambda$ in $X$. For $\lambda$ near $\lambda_0$, they lie
+in the neighborhood of uniqueness and coincide with the branch.
+
+Differentiating the system along the branch, with $h_f=dv_f/d\tau$ and $w=1+\sum_gh_g\circ\ell_g$, gives $\dot\nu=\nu w$ and
+$u_fh_f+T_f(\nu w)=0$. Thus $\int\nu w^2=\int\nu w+\sum_f\int T_f(\nu w)\,h_f=\frac{d\rho}{d\tau}-\sum_f\int u_fh_f^2$, which
+is~\eqref{eq:derivada_actividad}. The inequality is strict. If the right-hand side vanished, we would have both $h=0$ and $w=0$, which
+is incompatible with $w=1+\sum_fh_f\circ\ell_f$. Analytic inversion takes us from $\tau$ to $\rho$. \end{proof}
+
+\begin{proposicion}[Dilute endpoint]\label{prop:diluido} There exists a function $A$, real analytic in a neighborhood of $0$ with
+$A(0)=1$, such that $\lambda(\rho)=\rho\,A(\rho)$ for small $\rho>0$. The vacancies depend analytically on $\rho$ in $X$ near $\rho=0$,
+with $u_f\equiv1$ at $\rho=0$. \end{proposicion}
+
+\begin{proof} At $\lambda=0$ we use the unknowns $u_f\in C(I_f)$ directly. The system $u_f+T_f(\lambda\prod_gu_g\circ\ell_g)-1=0$ has
+the solution $u_f\equiv1$ at $\lambda=0$, with derivative equal to the identity. The implicit function theorem gives an analytic branch
+$\lambda\mapsto u(\lambda)$ for small $|\lambda|$, with $\rho(\lambda)=\lambda\int\prod_gu_g(\lambda)\circ\ell_g=\lambda+O(\lambda^2)$
+because the square has area one. The maximizers coincide with the branch. Indeed, as $\rho\to0$, $\lambda\to0$
+(Proposition~\ref{prop:concava}) and $m_f\le\lambda/(1+\lambda)\to0$ uniformly (Theorem~\ref{thm:max}), so $u_f\to1$ uniformly. Since
+$\rho'(0)=1$, analytic inversion of $\rho(\lambda)$ gives $\lambda=\rho A(\rho)$ with $A$ analytic and $A(0)=1$. \end{proof}

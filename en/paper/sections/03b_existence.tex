@@ -1,0 +1,85 @@
+\emph{Step 6. The equation.} By Step~5, $\int\nu^*(\theta-W)=0$ with integrand $\ge0$. It follows that $\nu^*(\theta-W)=0$ almost
+everywhere and, since $\nu^*>0$, that $W=\theta$. That is, $\nu^*=e^{-\theta}\,\Pi[\nu^*]$.
+
+\emph{Step 7. The bounds.} By the equation and Lemma~\ref{lem:fubini}, for almost every $r\in I_R$, \[
+ m^*_R(r)=\lambda\,u^*_R(r)\int_0^1u^*_C(c)\,u^*_D(r-c)\,u^*_A(r+c)\,dc\ \le\ \lambda\bigl(1-m^*_R(r)\bigr),
+\] which gives $m^*_R\le\lambda/(1+\lambda)$. The same argument works for the other families, since the integral runs over a fiber of
+parameter length $\le1$. Each factor in $\Pi[\nu^*]$ therefore lies between $1/(1+\lambda)$ and $1$, giving
+$\lambda(1+\lambda)^{-4}\le\nu^*\le\lambda$. Integrating the equation gives $\rho=\lambda\int\Pi[\nu^*]$.
+
+\emph{Step 8. A supergradient.} Let $\rho'\in(0,1)$, $\nu'\in\cA_{\rho'}$ with $s[\nu']>-\infty$, and let
+$\varphi(t)=s[\nu^*+t(\nu'-\nu^*)]$, which is concave on $[0,1]$. By Step~7, $\log\nu^*$ and the $\log u^*_f$ are bounded, so the
+calculation in Step~2 applies with all terms finite. The masses now differ, but the constants again cancel. Their contributions are
+$-(\rho'-\rho)$ from the entropy, $+4(\rho'-\rho)$ from the four families, and $-3(\rho'-\rho)$ from the term $-3\rho$. This leaves
+$\varphi'(0^+)=\int(\nu'-\nu^*)W=\theta(\rho'-\rho)$, and $s[\nu']=\varphi(1)\le\varphi(0)+\varphi'(0^+)$. Taking the supremum over
+$\nu'$ gives the inequality in~(d). A function that lies below a line touching it at each point is concave. If $\rho_1<\rho_2$, adding
+the inequalities at $\rho_1$ and $\rho_2$ gives $(\theta(\rho_1)-\theta(\rho_2))(\rho_2-\rho_1)\ge0$.
+
+\emph{Step 9. The derivative.} If $|\sigma-1|$ is small, $\sigma\nu^*\in\cA_{\sigma\rho}$ because its projections are
+$\le\sigma\lambda/(1+\lambda)<1$. The function \[
+ \psi(\sigma)=s[\sigma\nu^*]=-3\sigma\rho-\sigma\int\nu^*\log\nu^*-\sigma\rho\log\sigma+\sum_f\int_{I_f}G(\sigma m^*_f)
+\] is of class $C^2$ near $\sigma=1$, with $\psi'(1)=\int\nu^*W=\rho\theta$ and
+$|\psi''(\sigma)|\le\rho/\sigma+\sum_f\int(m^*_f)^2/(1-\sigma m^*_f)$, which is bounded. Thus
+$\sopt(\rho+h)\ge\psi(1+h/\rho)\ge\sopt(\rho)+\theta h-Ch^2$ for small $|h|$. Together with Step~8 this gives
+$\sopt(\rho+h)=\sopt(\rho)+\theta h+O(h^2)$, so $\sopt$ is differentiable with $\sopt{}'=\theta$. The derivative of a differentiable
+concave function on an open interval is continuous. \end{proof}
+
+\begin{proposicion}\label{prop:concava} The function $\sopt$ is strictly concave on $(0,1)$. Consequently, $\theta=\sopt{}'$ is
+continuous and strictly decreasing, and $\lambda=e^{-\theta}$ is continuous and strictly increasing. Moreover,
+$\lambda(1+\lambda)^{-4}\le\rho\le\lambda/(1+\lambda)$. It follows that $\lambda(\rho)\to0$ as $\rho\to0$ and
+$\lambda(\rho)\ge\rho/(1-\rho)\to\infty$ as $\rho\to1$. \end{proposicion}
+
+\begin{proof} The functional $s[\nu]=-3\int\nu-\int\nu\log\nu+\sum_f\int G(m_f)$ is concave on the convex union of the classes
+$\cA_\rho$, and its entropy term is strictly concave. If $\sopt$ were affine on $[\rho_1,\rho_2]$, the mixture
+$\bar\nu=\frac12(\nu_{\rho_1}+\nu_{\rho_2})\in\cA_{(\rho_1+\rho_2)/2}$ would satisfy
+$s[\bar\nu]>\frac12(\sopt(\rho_1)+\sopt(\rho_2))=\sopt(\frac{\rho_1+\rho_2}2)$, which is impossible. The derivative of a differentiable
+strictly concave function is strictly decreasing, and it is continuous by Theorem~\ref{thm:max}(d). Integrating the bounds on
+$\nu_\rho$ and $m_R$ from Theorem~\ref{thm:max}(c) over the square gives $\lambda(1+\lambda)^{-4}\le\rho\le\lambda/(1+\lambda)$. By
+monotonicity, $\lambda$ has a limit as $\rho\to0$, and the first inequality forces that limit to be zero. The second gives
+$\lambda\ge\rho/(1-\rho)$. \end{proof}
+
+Theorem~\ref{thm:max} and Proposition~\ref{prop:concava} prove Theorem~\ref{thm:euler} for $\rho<1$. The case $\rho=1$ is treated in
+Proposition~\ref{prop:masa_uno}.
+
+\begin{lema}[Representation of the vacancies]\label{lem:vacancias} Let $0<\rho<1$, $\nu=\nu_\rho$, and $\lambda=\lambda(\rho)$. For
+each family $f$ and each $t\in I_f$, let $J_f(t)$ be the integral over the fiber of $f$ over $t$, with respect to the parameter
+measure, of the product of the vacancies of the other three families. For example, $J_R(r)=\int_0^1u_C(c)\,u_D(r-c)\,u_A(r+c)\,dc$.
+Then $0\le J_f\le1$, $J_f$ is continuous on $I_f$, and \[
+ u_f=\frac1{1+\lambda J_f},\qquad m_f=\frac{\lambda J_f}{1+\lambda J_f}\qquad\text{almost everywhere}.
+\] We use these continuous representatives in what follows. In particular, $u_f\ge1/(1+\lambda)$, $u_D(\pm1)=1$, and $u_A(0)=u_A(2)=1$. \end{lema}
+
+\begin{proof} The integral $J_f(t)$ is defined for every $t$. On a fiber of $f$, the coordinate of each other family is an affine
+function of the parameter with slope of absolute value one or two, so the composition is independent of the choice of representatives.
+By the Euler equation and Lemma~\ref{lem:fubini}, $m_f=\lambda u_fJ_f$ almost everywhere, as in Step~7, and the formula follows by
+rearranging. The factors lie in $[0,1]$, and the fibers have length at most one. When passing from $t$ to $t'$, the fiber changes on a
+set of length $\le2|t-t'|$, and the arguments of the other factors are shifted by $|t-t'|$ (on diagonals and antidiagonals, after a
+change of variable with Jacobian $\frac12$). With the $m_g$ extended by zero, \[
+ |J_f(t)-J_f(t')|\le2|t-t'|+2\sum_{g\ne f}\ \sup_{|h|\le|t-t'|}\|m_g(\cdot+h)-m_g\|_{L^1(\mathbb R)},
+\] which tends to zero by continuity of translations in $L^1$. At the endpoints of $I_D$ and $I_A$, the fiber is a point and $J_f=0$. \end{proof}
+
+\begin{proposicion}[Continuity with respect to mass]\label{prop:continuidad} \begin{enumerate}[(a)] \item The map $\rho\mapsto\nu_\rho$
+is continuous from $(0,1)$ to $L^1([0,1]^2)$, and $\rho\mapsto m_{f,\rho}$ is continuous from $(0,1)$ to $L^2(I_f)$ for all four
+families. \item For each compact interval $[\rho_1,\rho_2]\subset(0,1)$, the family $\{m_{f,\rho}:\rho\in[\rho_1,\rho_2]\}$ of
+continuous representatives is equicontinuous. Hence $(\rho,t)\mapsto m_{f,\rho}(t)$ is uniformly continuous on $[\rho_1,\rho_2]\times
+I_f$. \end{enumerate} \end{proposicion}
+
+\begin{proof} (a) Let $\rho_j\to\rho$, $\nu_j=\nu_{\rho_j}$, and $\nu=\nu_\rho$. Since $\sopt$ is continuous and the line terms are
+bounded, the entropies of the $\nu_j$ are bounded, and every subsequence has a further subsequence that converges weakly in $L^1$ to
+some $\bar\nu$ (Step~1). By Lemma~\ref{lem:fubini}, $\bar\nu\in\cA_\rho$, since its mass is $\rho$ and $\int m_f[\bar\nu]\,g=\lim\int
+m_f[\nu_j]\,g\le\int g$ for every bounded $g\ge0$. Each term of $s$ (the mass term, the entropy, and the four line terms) is concave
+and upper semicontinuous in $L^1$ and hence weakly upper semicontinuous by Mazur's lemma. Thus $s[\bar\nu]\ge\limsup
+s[\nu_j]=\sopt(\rho)$, and $\bar\nu=\nu$ by uniqueness. We therefore have $\nu_j\to\nu$ weakly. Since the sum converges and the limit
+superior of each term is at most its value at $\nu$, each term converges. With $H(z)=z\log z$ and $H''=1/z\ge1/(u+v)$ between $u$ and $v$,
+\[
+ \frac{H(u)+H(v)}2-H\Bigl(\frac{u+v}2\Bigr)\ge\frac{(u-v)^2}{8(u+v)}\qquad(u,v\ge0).
+\] Integrating with $u=\nu_j$, $v=\nu$ and using weak lower semicontinuity of $\int H$ in $\frac{\nu_j+\nu}2\to\nu$ gives
+$\int\frac{(\nu_j-\nu)^2}{\nu_j+\nu}\to0$, and Cauchy--Schwarz gives
+$\|\nu_j-\nu\|_1^2\le(\rho_j+\rho)\int\frac{(\nu_j-\nu)^2}{\nu_j+\nu}\to0$. For the line terms, $G''\le-1$ on $[0,1)$ gives $\int
+G(\frac{m_j+m}2)\ge\frac12\int G(m_j)+\frac12\int G(m)+\frac18\|m_j-m\|_2^2$, and upper semicontinuity in $\frac{m_j+m}2\to m$ gives
+$\|m_j-m\|_2\to0$.
+
+(b) By Lemma~\ref{lem:vacancias}, $m_{f,\rho}=\lambda J_f/(1+\lambda J_f)$, with the continuity bound for $J_f$ from its proof. By~(a),
+$\{m_{g,\rho}:\rho\in[\rho_1,\rho_2]\}$ is compact in $L^1$ and therefore has a uniform modulus of continuity under translation
+(Fréchet--Kolmogorov~\cite{Brezis}). Since $\lambda(\rho)\le\lambda(\rho_2)$ and $z\mapsto\lambda z/(1+\lambda z)$ is
+$\lambda$-Lipschitz, the family is equicontinuous. Equicontinuity, boundedness, and convergence in $L^2$ give uniform convergence by
+Arzelà--Ascoli, and joint continuity follows. \end{proof}

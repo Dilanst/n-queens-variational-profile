@@ -1,0 +1,42 @@
+\begin{teorema}[Regularity at fixed activity]\label{thm:lip_interior} Let $\rho\in(0,1)$, $x=1-\rho$, and $\lambda=\lambda(\rho)$. The
+continuous representatives of the vacancies, the projections, and the maximizer satisfy \[
+ \Lip(u_f),\ \Lip(m_f)\le L(\lambda),\qquad \|\nu_\rho\|_\infty\le\lambda,\qquad
+ \Lip_\infty(\nu_\rho)\le6\lambda L(\lambda),
+\] and, for $\Theta_x(r,c)=r_R(r)\,r_C(c)=u_R(r)u_C(c)/x^2$, \[
+ \|\Theta_x\|_\infty\le x^{-2},\qquad \Lip_\infty(\Theta_x)\le2L(\lambda)/x^2 ,
+\] where $\Lip_\infty$ refers to the maximum norm on the square. The bounds hold up to and including the boundary and are uniform on every
+compact subset of $(0,1)$. \end{teorema}
+
+\begin{proof} Estimate~\eqref{eq:traslacion} gives the first bound for any two points of the same interval. Telescoping the four
+factors of the Euler equation gives a bound of $\lambda L(\lambda)(|\Delta r|+|\Delta c|+|\Delta r-\Delta c|+|\Delta r+\Delta
+c|)\le6\lambda L(\lambda)\|\Delta(r,c)\|_\infty$, and the product of the two factors of $\Theta_x$ gives a bound of
+$2L(\lambda)\|\Delta(r,c)\|_\infty/x^2$. On a compact set of masses, it suffices to replace $\lambda$ by its maximum and $x$ by its
+minimum, since the bounds are monotone and $\lambda$ is increasing. \end{proof}
+
+Theorem~\ref{thm:lip_interior} is part~(a) of Theorem~\ref{thm:lipschitz_intro}.
+
+\begin{observacion}[Degeneration at the endpoints]\label{obs:degeneracion} Since $\lambda=b/x^2\le b_+/x^2$ for $x\le\frac12$
+(Proposition~\ref{prop:cotas}), the constants in Theorem~\ref{thm:lip_interior} are $O(x^{-6})$ for the vacancies and $O(x^{-8})$ for
+$\nu$ and $\Theta_x$ as $x\downarrow0$. As $\rho\downarrow0$, $\lambda\le\rho(1+\lambda)^4=O(\rho)$ (Proposition~\ref{prop:concava})
+gives $O(\rho)$, $O(\rho^2)$, and $O(\rho)$, respectively. These are upper bounds, not optimal exponents. We
+make no claim of global $C^1$ regularity. The geometry of the diagonal domains changes, and a Lipschitz bound does not rule out corners.
+\end{observacion}
+
+\begin{proposicion}[Dependence on activity]\label{prop:actividad} Let $0<\lambda,\lambda'\le\Lambda$ and let $v_\lambda,v_{\lambda'}$
+denote the fields of the corresponding maximizers. Then \begin{gather*}
+ \|v_\lambda-v_{\lambda'}\|_\cH\le\sqrt6\,(1+\Lambda)|\lambda-\lambda'|,\qquad
+ \|u_{f,\lambda}-u_{f,\lambda'}\|_\infty\le C_\Lambda|\lambda-\lambda'|,\\
+ \|\nu_\lambda-\nu_{\lambda'}\|_\infty\le(1+4\Lambda C_\Lambda)|\lambda-\lambda'|,
+\end{gather*} with $C_\Lambda=1+5\Lambda(1+\Lambda)$. \end{proposicion}
+
+\begin{proof} The vacancies of both maximizers lie in $[(1+\Lambda)^{-1},1]$. Since $\cG_{\lambda'}(v_{\lambda'})=0$, we have
+$\cG_{\lambda,f}(v_{\lambda'})=(\lambda-\lambda')\,u_{f,\lambda'}J_f(u_{\lambda'})$, whose norm in $\cH$ is at most
+$\sqrt6|\lambda-\lambda'|$ because the lengths of the four domains sum to six. Lemma~\ref{lem:estabilidad} with
+$\kappa'=(1+\Lambda)^{-1}$ gives the first bound. Comparing $u_{f,\lambda}=1/(1+\lambda J_f(u_\lambda))$ with its counterpart at
+$\lambda'$ and using~\eqref{eq:conversion} gives
+$\|u_{f,\lambda}-u_{f,\lambda'}\|_\infty\le|\lambda-\lambda'|+\Lambda\sqrt3\,\|v_\lambda-v_{\lambda'}\|_\cH\le
+C_\Lambda|\lambda-\lambda'|$. The Euler equation and its product of four factors give the last bound. \end{proof}
+
+In particular, since $\lambda$ is continuous, $x\mapsto(\nu_{1-x},u_{R,x},u_{C,x},u_{D,x},u_{A,x})$ is continuous in the uniform norm
+on $(0,1)$, and for $x,y$ in a compact set with minimum $x_*>0$ and $\Lambda=\max\lambda$, we have
+$\|\Theta_x-\Theta_y\|_\infty\le\frac{2C_\Lambda}{x_*^2}|\lambda(1-x)-\lambda(1-y)|+\frac2{x_*^3}|x-y|$.

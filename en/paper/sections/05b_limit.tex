@@ -1,0 +1,66 @@
+\begin{proposicion}[Uniform convergence]\label{prop:conv_unif} As $x\downarrow0$, $r_{R,x},r_{C,x},u_{D,x},u_{A,x}$ converge uniformly
+to positive continuous representatives of $r_{R,0},r_{C,0},u_{D,0},u_{A,0}$, which satisfy the bounds in Proposition~\ref{prop:cotas}
+and equations~\eqref{eq:filas}--\eqref{eq:diagonales} with $x=0$ and $b=b_0$. \end{proposicion}
+
+\begin{proof} Denote the integrals in~\eqref{eq:filas}--\eqref{eq:diagonales} by $\Phi_f$, so that $r_R=1/(x+b\Phi_R)$,
+$r_C=1/(x+b\Phi_C)$, $u_D=1/(1+b\Phi_D)$, and $u_A=1/(1+b\Phi_A)$, and let $\Phi_{f,0}$ denote the same integral formed from the
+limits. In each fiber integral, every factor from a different family is evaluated at an affine coordinate whose slope has absolute
+value one or two. No slope is zero, since the four families have distinct directions. We bound the difference of the products by
+summing the differences of their factors, which are bounded by $M$. A change of variable then gives
+\begin{equation}\label{eq:fibras_unif}
+ \sup_{t\in I_f}|\Phi_f(t)-\Phi_{f,0}(t)|\le C\sum_{g\ne f}\|y_{g,x}-y_{g,0}\|_{L^1(I_g)},
+\end{equation} where $y_g$ is the normalized factor of the family $g$ ($r_R$, $r_C$, $u_D$, or $u_A$) and $C$ depends only on $M$. This
+estimate holds even before we know that the limits are continuous. The limiting integrals $\Phi_{f,0}$ are continuous because
+translations are continuous in $L^1$ and the fiber endpoints move continuously, as in Lemma~\ref{lem:vacancias}. By
+Proposition~\ref{prop:conv_L2}, $\Phi_f\to\Phi_{f,0}$ uniformly. The denominators are bounded away from zero, since
+$b\Phi_R,b\Phi_C\ge\kappa^2/(2(1+b_+))$ and $1+b\Phi_D,1+b\Phi_A\ge1$. The rational formulas now give uniform convergence to
+$1/(b_0\Phi_{R,0})$, and similarly for the other factors. These limits are continuous, positive, and equal almost everywhere to the
+limits in $L^2$. \end{proof}
+
+To apply the implicit function theorem, we use the Banach space $X=C(I_R)\oplus C(I_C)\oplus C(I_D)\oplus C(I_A)$, with unknowns
+$z=(z_R,z_C,z_D,z_A)=(\log r_R,\log r_C,\log u_D,\log u_A)\in X$ and $\gamma=\log b$. For $(x,z,\gamma)\in\mathbb R\times
+X\times\mathbb R$, set $\nu=b\,r_Rr_Cu_Du_A$ and \[
+ E_R=xr_R+T_R\nu-1,\quad E_C=xr_C+T_C\nu-1,\quad E_D=u_D+T_D\nu-1,\quad E_A=u_A+T_A\nu-1,
+\] \[
+ n_R=\int r_R-1,\qquad n_C=\int r_C-1 .
+\] These are real-analytic maps between Banach spaces, formed from exponentials, products, bounded linear projections, and integrals.
+Since $\int T_R\nu=\int T_C\nu$, we have the exact redundancy $\int E_R-\int E_C=x(n_R-n_C)$. Let $Z\subset X$ denote the closed
+subspace $\{\int e_R=\int e_C\}$ of codimension one, and let $P(e)=(e_R,\,e_C-\int e_C+\int e_R,\,e_D,\,e_A)$, which maps $X$ onto $Z$
+and acts as the identity on $Z$. Consider \begin{equation}\label{eq:sistema}
+ \mathscr E(x,z,\gamma)=(PE,n_R,n_C)=0\qquad\text{in }Z\oplus\mathbb R^2 .
+\end{equation} If $PE=0$ and $n_R=n_C=0$, the redundancy gives $\int E_C=\int E_R=0$ and hence $E=0$, also for $x\ne0$.
+Thus~\eqref{eq:sistema} is equivalent to $E=0$ together with the two normalizations. By Lemma~\ref{lem:vacancias} and
+Proposition~\ref{prop:conv_unif}, both the maximizers ($0<x\le\frac12$) and the limit ($x=0$) satisfy this system.
+
+\begin{teorema}[Analytic branch at the full board]\label{thm:rama} There exist $\varepsilon>0$ and a real-analytic map
+$x\mapsto(z(x),\gamma(x))$ from $(-\varepsilon,\varepsilon)$ to $X\times\mathbb R$ that solves~\eqref{eq:sistema}, with \[
+ (z(0),\gamma(0))=(\log r_{R,0},\log r_{C,0},\log u_{D,0},\log u_{A,0},\log b_0),
+\] and that, for $0<x<\varepsilon$, coincides with the optimal profile: \[
+ (z(x),\gamma(x))=(\log r_{R,x},\log r_{C,x},\log u_{D,x},\log u_{A,x},\log b_x).
+\] \end{teorema}
+
+\begin{proof} For a variation $(h,\beta)=(h_R,h_C,h_D,h_A,\beta)\in X\oplus\mathbb R$, set $w=\beta+\sum_fh_f\circ\ell_f$, so that
+$\dot\nu=\nu_1w$ at $x=0$. The part of the derivative of $E_f$ acting on $h_f$ is $h_f$. For rows and columns this follows from
+$T_R\nu_1=T_C\nu_1=1$, and for a diagonal it follows from $(u_{D,0}+m_D[\nu_1])h_D=h_D$. The operators coupling distinct families are
+compact by Arzelà--Ascoli. When parametrized by the coordinate of the other family, their kernels are continuous on the domain allowed
+by the fiber (extending them by zero may introduce jumps at the boundary of that domain, which does not affect the argument). For two
+nearby fiber parameters, we use uniform continuity of the kernel on the common domain, and the symmetric difference of the intervals of
+integration has length $O(|t-t'|)$. For $D\leftrightarrow A$, the change of variable has Jacobian $\frac12$ and endpoints
+$[|d|,2-|d|]$. The term in $\beta$ has rank one. Thus the derivative of $E$ is a Fredholm operator from $X\oplus\mathbb R$ to $X$ of
+index one. At $x=0$ its image lies in $Z$ because the derivative of the redundancy vanishes. This raises the index to two when the
+operator takes values in $Z$. The two normalization equations bring the index back to zero.
+
+If $(h,\beta)$ lies in the kernel of the derivative of~\eqref{eq:sistema} at $x=0$, then \begin{gather*}
+ T_R(\nu_1w)=T_C(\nu_1w)=0,\qquad T_D(\nu_1w)=-u_{D,0}h_D,\qquad T_A(\nu_1w)=-u_{A,0}h_A,\\
+ \int r_{R,0}h_R=\int r_{C,0}h_C=0 .
+\end{gather*} Multiplying by the components of $w$, integrating, and using the row equation to eliminate $\beta\int\nu_1w=\beta\int
+T_R(\nu_1w)=0$ gives \begin{equation}\label{eq:energia}
+ \int_{[0,1]^2}\nu_1w^2+\int_{I_D}u_{D,0}h_D^2+\int_{I_A}u_{A,0}h_A^2=0 .
+\end{equation} By positivity, $h_D=h_A=0$ and $\beta+h_R(r)+h_C(c)=0$ on the square. Hence $h_R$ and $h_C$ are constant, the
+normalizations force them to vanish, and then $\beta=0$. The kernel is trivial, and since the index is zero, the derivative is an
+isomorphism with bounded inverse. The analytic implicit function theorem~\cite{Zeidler} gives a neighborhood $U$ of
+$(0,z(0),\gamma(0))$ and an analytic branch whose points are precisely the solutions of~\eqref{eq:sistema} in $U$. By
+Proposition~\ref{prop:conv_unif} and the lower bounds, the logarithms of the optimal profiles converge uniformly as $x\downarrow0$. For
+small $x>0$ they lie in $U$ and coincide with the branch. \end{proof}
+
+Propositions~\ref{prop:cotas}, \ref{prop:conv_L2}, and~\ref{prop:conv_unif} and Theorem~\ref{thm:rama} prove Theorem~\ref{thm:lleno}.

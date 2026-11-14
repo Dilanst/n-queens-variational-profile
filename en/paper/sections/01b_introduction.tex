@@ -1,0 +1,51 @@
+The preceding theorem describes what happens as the mass varies. We also need to compare two positions on the same board. A Lipschitz
+bound controls the change in the profile in terms of the distance between the positions. The question is whether the same constant
+works as fewer and fewer rows remain empty.
+
+\begin{teorema}[Spatial regularity]\label{thm:lipschitz_intro} \begin{enumerate}[(a)] \item For $\rho\in(0,1)$ and
+$\lambda=\lambda(\rho)$, the vacancies and projections are Lipschitz on their closed intervals with constant
+$L(\lambda)=2\lambda+8\lambda^2(1+\lambda)$, and $\nu_\rho$ is Lipschitz on the square with constant $6\lambda L(\lambda)$ in the
+maximum norm. The bounds are uniform on each compact subset of $(0,1)$. \item There exists $L_*<\infty$ such that, for every
+$x\in[0,1/2]$, the rescaled factors $r_R,r_C,u_D,u_A$ are Lipschitz with constant $L_*$, and $\nu$ is bounded and Lipschitz with
+constants independent of $x$. \end{enumerate} \end{teorema}
+
+The bound in part (a) degenerates as $\rho\to1$ because $\lambda(\rho)\to\infty$. Part (b) lets us work all the way to the full board.
+
+For $x\in(0,1)$ and $\rho=1-x$, define \begin{equation}\label{eq:F}
+ F(x)=\frac{1-x}{\lambda(1-x)\,x^2}=\frac{1-x}{b}=\int_{[0,1]^2}r_R(r)\,r_C(c)\,u_D(r-c)\,u_A(r+c)\,dr\,dc .
+\end{equation} The last expression is the integral of $u_D(r-c)\,u_A(r+c)$ with respect to the weight $r_R(r)\,r_C(c)$, a probability
+density on the square. The significance of $F$ lies in the integral identity in the following theorem, which recovers $\sopt(1)$ from
+it.
+
+\begin{teorema}[The function $F$ and the optimal value]\label{thm:F_intro} The function $F$ extends to a positive real-analytic
+function on a neighborhood of $[0,1]$, with \[
+ F(0)=\frac1{b_0},\qquad F(1)=1,\qquad \int_0^1\log F(x)\,dx=1+\sopt(1).
+\] Moreover, as $x\downarrow0$, \[
+ \sopt(1-x)-\sopt(1)=2x\log\frac1x+O(x).
+\] \end{teorema}
+
+\begin{observacion}[Numerical values] A deterministic numerical solution of the Euler system (Section~\ref{sec:discusion}) gives
+$F(0)\approx0.0809$, $F'(0)\approx0.516$, and $\int_0^1\log F\approx-0.9440$, so that $\sopt(1)\approx-1.9440$. This value is
+consistent with known values of the constant $\alpha$~\cite{Simkin,NAB}, as one would expect if $\alpha=-\sopt(1)$ (see
+Remark~\ref{obs:simkin}). These numerical values carry no certified error bounds. \end{observacion}
+
+\subsection{From the maximizer to the limiting profile}
+
+At mass one, existence and uniqueness of the entropy maximizer are given in Lemma~2.22 of Simkin~\cite{Simkin}. Remark~\ref{obs:simkin}
+specifies the correspondence between the functionals. The family of partial masses lets us study how this maximizer is approached. We
+first derive the Euler equation in the interior (Section~\ref{sec:euler}). Its rescaled bounds allow us to identify the factors that
+persist at mass one (Sections~\ref{sec:cotas} and~\ref{sec:limite}). Section~\ref{sec:analiticidad} completes the analysis of the
+dependence on mass. To control spatial variation, we compare the profile with its translates (Section~\ref{sec:regularidad}). Finally,
+integrating the Euler equation gives the relation between $F$ and the optimal entropy (Section~\ref{sec:F}), which we evaluate
+numerically in Section~\ref{sec:discusion}.
+
+\subsection{Relation to previous work}
+
+Simkin~\cite{Simkin} bounds the optimal value at mass one by discretizing the problem. His upper bound uses Lagrange duality, which
+expresses the discrete maximizer as an exponential in the multipliers~\cite[Section~6]{Simkin}. Nobel, Agrawal, and Boyd~\cite{NAB}
+solve a discretization of the same problem by Newton's method and obtain the interval quoted above. It is a classical principle that an
+entropy maximizer under linear constraints has exponential form~\cite{Csiszar}. What this paper adds is the study of the family of partial
+masses, with its Euler equation, and above all uniform control up to the full board: explicit bounds, convergence and analyticity
+of the rescaled profile, uniform Lipschitz regularity, and the integral identity for $F$. To the best of our knowledge (our literature
+search was not exhaustive), these results are new. We make no claim of novelty for the general techniques of convex analysis, duality,
+or the implicit function theorem~\cite{Brezis,Zeidler}.

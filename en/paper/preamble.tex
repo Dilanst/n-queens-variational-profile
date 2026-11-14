@@ -1,0 +1,47 @@
+% Compile with XeLaTeX; several passes are needed for the references to resolve.
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\IfFontExistsTF{texgyrepagella-regular.otf}
+ {\setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,
+   ItalicFont=*-italic,BoldItalicFont=*-bolditalic]}
+ {\IfFontExistsTF{Palatino Linotype}{\setmainfont{Palatino Linotype}}{\setmainfont{Latin Modern Roman}}}
+\linespread{1.05}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{unicode-math}
+\IfFontExistsTF{texgyrepagella-math.otf}{\setmathfont{texgyrepagella-math.otf}}{\setmathfont{Latin Modern Math}}
+\usepackage[margin=26mm]{geometry}
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\IfFileExists{titlesec.sty}{\usepackage[nobottomtitles*]{titlesec}
+  \renewcommand{\bottomtitlespace}{.12\textheight}}{}
+\usepackage{booktabs,array}
+\usepackage[shortlabels]{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor={blue!45!black},citecolor={green!35!black},urlcolor={blue!55!black}]{hyperref}
+
+\AtBeginDocument{\renewcommand{\tablename}{Table}}
+\setlength{\parskip}{3pt}
+\setlength{\emergencystretch}{2em}
+\allowdisplaybreaks[2]
+\numberwithin{equation}{section}
+
+\theoremstyle{plain}
+\newtheorem{teorema}{Theorem}[section]
+\newtheorem{proposicion}[teorema]{Proposition}
+\newtheorem{lema}[teorema]{Lemma}
+\newtheorem{corolario}[teorema]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definicion}[teorema]{Definition}
+\theoremstyle{remark}
+\newtheorem{observacion}[teorema]{Remark}
+
+% Notation
+\newcommand{\ind}{\mathbf{1}}
+\DeclareMathOperator{\Lip}{Lip}
+\newcommand{\cA}{{\mathcal{A}}}
+\newcommand{\cH}{{\mathcal{H}}}
+\newcommand{\cE}{{\mathcal{E}}}
+\newcommand{\cG}{{\mathcal{G}}}
+\newcommand{\sopt}{s^{*}}

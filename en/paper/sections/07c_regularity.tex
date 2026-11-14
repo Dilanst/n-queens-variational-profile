@@ -1,0 +1,68 @@
+\subsection{Uniformity up to the full board}
+
+For $x\in[0,\frac12]$ we use the rescaled profile, and at $x=0$ we use its limit (Proposition~\ref{prop:conv_unif}). With the constants
+from Proposition~\ref{prop:cotas} and $b_-=\frac12$, fix \begin{gather*}
+ m_0=\min\{\kappa,(1+b_+)^{-1}\},\qquad \overline K=\max\{1,M,(b_-\kappa^2)^{-1}\},\\
+ \overline B=b_+\overline K^2,\qquad c_0=b_-m_0^4,\qquad \lambda_c=\min\{c_0/2,\kappa/5\}.
+\end{gather*} The row and column factors and their extensions used below lie in $[m_0,\overline K]$, and the diagonal factors lie in
+$[\kappa,1]$. Every density along the logarithmic segment lies between $c_0$ and $\overline B$.
+
+With $v=(\log r_R,\log r_C,\log u_D,\log u_A)$, the rescaled dual functional at fixed $x$ and $b$ is \[
+ \cE_{x,b}(v)=\sum_{f=R,C}\int(xe^{v_f}-v_f)+\sum_{f=D,A}\int(e^{v_f}-v_f)
+ +b\int_{[0,1]^2}\exp\Bigl(\sum_fv_f\circ\ell_f\Bigr).
+\] With $\nu_v=b\exp(\sum_fv_f\circ\ell_f)$, its gradient is $\cG_{R,C}=xe^{v_{R,C}}-1+T_{R,C}\nu_v$ and
+$\cG_{D,A}=e^{v_{D,A}}-1+T_{D,A}\nu_v$. The profile satisfies $\cG_{x,b}(v)=0$, including at $x=0$ by uniform convergence. If
+$S_w=\sum_fw_f\circ\ell_f$, the Hessian satisfies \[
+ \langle w,D\cG_{x,b}(v)w\rangle=x\sum_{R,C}\int e^{v_f}w_f^2+\sum_{D,A}\int e^{v_f}w_f^2+\int\nu_vS_w^2
+ \ \ge\ \kappa\bigl(\|w_D\|_2^2+\|w_A\|_2^2\bigr)+c_0\|S_w\|_2^2 ,
+\] under the preceding bounds, including along segments.
+
+\begin{lema}[Coercivity with one transverse family fixed]\label{lem:coercividad} If the factors of $v$ satisfy the bounds above and
+either $w_C=0$ or $w_R=0$ holds, then $\langle w,D\cG_{x,b}(v)w\rangle\ge\lambda_c\|w\|_\cH^2$. Consequently, if $\widetilde v_C=v_C$
+and the bounds hold along the segment, $\|\widetilde v-v\|_\cH\le\|\cG_{x,b}(\widetilde v)-\cG_{x,b}(v)\|_\cH/\lambda_c$, and the same
+holds when $R$ is fixed in place of $C$. \end{lema}
+
+\begin{proof} With $w_C=0$, we have $w_R\circ\ell_R=S_w-w_D\circ\ell_D-w_A\circ\ell_A$. Lifting $R$ to the square is an isometry, and
+lifting $D$ or $A$ does not increase the $L^2$ norm, since their fibers have parameter length at most one. From
+$|a-b-c|^2\le2a^2+4(b^2+c^2)$ we obtain $\|w\|_\cH^2\le2\|S_w\|_2^2+5(\|w_D\|_2^2+\|w_A\|_2^2)$, which together with the Hessian bound
+gives coercivity. Integrate the Hessian along the logarithmic segment and apply Cauchy--Schwarz. The case $w_R=0$ is symmetric.
+\end{proof}
+
+At $x=0$, $w=(1,-1,0,0)$ annihilates the quadratic form, so the estimate fails for arbitrary variations. The normalization $\int
+r_R=\int r_C=1$ fixes the representation of the solution, but equality of masses is not equivalent to orthogonality to this neutral mode. The
+next proof therefore keeps $C$ pointwise fixed when translating $R$, and vice versa.
+
+Extend $u_D,u_A$ by one outside their intervals. For $s\in\mathbb R$ let \[
+ \widehat r_R(s)=\Bigl[x+b\int_0^1r_C(c)\,\widehat u_D(s-c)\,\widehat u_A(s+c)\,dc\Bigr]^{-1}.
+\] Since $\int r_C=1$, the denominator lies between $b_-\kappa^2$ and $1+b_+$. Thus $\widehat r_R\in[m_0,\overline K]$, and the
+extension agrees with $r_R$ on $[0,1]$. For a translation $t$ let $r_R^t(r)=\widehat r_R(r+t)$, $r_C^t=r_C$, $u_D^t(d)=\widehat
+u_D(d+t)$, $u_A^t(s)=\widehat u_A(s+t)$, and $v^t=\log(r_R^t,r_C^t,u_D^t,u_A^t)$. With $\eta^t=\cG_{x,b}(v^t)$ we have \[
+ \eta_R^t=0,\qquad |\eta_C^t|,|\eta_D^t|,|\eta_A^t|\le2\overline B|t|,\qquad \|\eta^t\|_\cH\le2\sqrt5\,\overline B|t| ,
+\] by the geometry of Lemma~\ref{lem:residuo}. The domains differ on two strips of total length at most $2|t|$, the extended density is
+at most $\overline B$, and outside the diagonal interval the original fiber is empty and the extended vacancy equals one. All segments
+preserve the bounds. Since $v_C^t=v_C$, Lemma~\ref{lem:coercividad} gives $\|v^t-v\|_\cH\le2\sqrt5\,\overline B|t|/\lambda_c$.
+
+As in~\eqref{eq:conversion}, telescoping three factors bounded by $\overline K$ and applying Cauchy--Schwarz and
+$|e^\alpha-e^\beta|\le\overline K|\alpha-\beta|$ gives $|\Phi_f(v^t)-\Phi_f(v)|\le\sqrt3\,\overline K^3\|v^t-v\|_\cH$, where $\Phi_f$
+is the integral over the fiber of the other three normalized factors, as in Proposition~\ref{prop:conv_unif}. The denominators in the
+row and column equations are $x+b\Phi_f\ge b_-m_0\kappa^2$, and those in the diagonal equations are at least one. Set \[
+ d_0=\min\{1,b_-m_0\kappa^2\},\qquad
+ L_*=\frac{2\overline B}{d_0}+\frac{2\sqrt{15}\,b_+\overline K^3\overline B}{d_0^2\lambda_c}.
+\] If $y_f$ is the normalized factor of the family $f$, then $y_f^t(a_f+b\Phi_f(v^t))=1+\eta_f^t$ and $y_f(a_f+b\Phi_f(v))=1$, with
+$a_{R,C}=x$ and $a_{D,A}=1$. Comparing reciprocals gives $|y_f^t-y_f|\le L_*|t|$. Translation in the row coordinate controls $R$, $D$,
+and $A$. The symmetric construction, which translates $C$ and keeps $R$ fixed, controls $C$.
+
+\begin{teorema}[Uniform regularity up to the full board]\label{thm:lip_uniforme} For every $x\in[0,\frac12]$, with constants independent of $x$, \[
+ \|r_R\|_\infty,\|r_C\|_\infty\le\overline K,\quad \|u_D\|_\infty,\|u_A\|_\infty\le1,\quad
+ \Lip(r_R,r_C,u_D,u_A)\le L_*,
+\] \[
+ \|\nu\|_\infty\le\overline B,\quad \Lip_\infty\nu\le6b_+\overline K^2L_*,\quad
+ \|\Theta_x\|_\infty\le\overline K^2,\quad \Lip_\infty\Theta_x\le2\overline KL_* .
+\] \end{teorema}
+
+\begin{proof} The preceding proof applies for $x\in(0,\frac12]$ and also at the limit $x=0$. Alternatively, uniform convergence carries
+the bounds to the limit. For $\nu$, telescoping the four factors gives a bound of at most $b_+\overline K^2L_*(|\Delta r|+|\Delta
+c|+|\Delta r-\Delta c|+|\Delta r+\Delta c|)\le6b_+\overline K^2L_*\|\Delta(r,c)\|_\infty$, and the product of the two factors of
+$\Theta_x$ gives a bound of $2\overline KL_*$. \end{proof}
+
+Theorem~\ref{thm:lip_uniforme} is part~(b) of Theorem~\ref{thm:lipschitz_intro}. We make no claim of spatial $C^1$ regularity.

@@ -1,0 +1,66 @@
+\section{Spatial regularity}\label{sec:regularidad}
+
+We now fix the mass and move from one line to another in the same family. Translating a diagonal also changes the segment inside the
+square. The estimate must therefore control both the variation of the factors and the effect of moving the endpoints of the segment.
+
+We obtain regularity by comparing the profile with its translates using coercivity of a dual formulation. The argument requires no
+derivatives of the maximizer. On $\cH=\bigoplus_fL^2(I_f)$ we use the norm $\|w\|_\cH^2=\sum_f\|w_f\|_{L^2(I_f)}^2$.
+
+\subsection{Fixed activity}
+
+Fix $\rho\in(0,1)$, $\lambda=\lambda(\rho)$, $\nu=\nu_\rho$ and the continuous representatives from Lemma~\ref{lem:vacancias}. We have
+$u_f=1/(1+\lambda J_f(u))$, where $J_f(u)$ is the integral over the fiber of $\prod_{g\ne f}u_g\circ\ell_g$, $0\le J_f\le1$, and
+$\kappa_\lambda:=(1+\lambda)^{-1}\le u_f\le1$. For bounded fields $v_f=\log u_f$, define \begin{equation}\label{eq:dual}
+ \cE_\lambda(v)=\sum_f\int_{I_f}(e^{v_f}-v_f)+\lambda\int_{[0,1]^2}\exp\Bigl(\sum_fv_f\circ\ell_f\Bigr).
+\end{equation} Its gradient in $\cH$ is $\cG_{\lambda,f}(v)=e^{v_f}-1+T_f\nu_v$, with $\nu_v=\lambda\exp(\sum_fv_f\circ\ell_f)$, and
+the field of the maximizer satisfies $\cG_\lambda(v)=0$. The comparison fields are constrained by activity, with their mass free to
+vary. Differentiation is justified by boundedness and dominated convergence along segments of bounded fields. For a bounded direction
+$w$, \begin{equation}\label{eq:hess}
+ \langle w,D\cG_\lambda(v)w\rangle=\sum_f\int e^{v_f}w_f^2+\int\nu_v\Bigl(\sum_fw_f\circ\ell_f\Bigr)^2 .
+\end{equation}
+
+\begin{lema}[Stability]\label{lem:estabilidad} Let $0<\kappa'\le1$. If $u=e^v$ and $\widetilde u=e^{\widetilde v}$ take values in
+$[\kappa',1]$, then $\langle\cG_\lambda(\widetilde v)-\cG_\lambda(v),\widetilde v-v\rangle\ge\kappa'\|\widetilde v-v\|_\cH^2$. In
+particular, if $\cG_\lambda(v)=0$, then $\|\widetilde v-v\|_\cH\le\|\cG_\lambda(\widetilde v)\|_\cH/\kappa'$. \end{lema}
+
+\begin{proof} The exponentials along the segment between the logarithms lie in $[\kappa',1]$. Integrate~\eqref{eq:hess} along this
+segment and apply Cauchy--Schwarz. \end{proof}
+
+Extend $u_D$ and $u_A$ by one outside $I_D$ and $I_A$ (these extensions are continuous by Lemma~\ref{lem:vacancias}), and write
+$\widehat u_D,\widehat u_A$. For $t\in\mathbb R$ let \[
+ \widehat u_R(t)=\Bigl[1+\lambda\int_0^1u_C(c)\,\widehat u_D(t-c)\,\widehat u_A(t+c)\,dc\Bigr]^{-1},
+\] which agrees with $u_R$ on $[0,1]$ and takes values in $[\kappa_\lambda,1]$. For a shift $t$, the comparison field on the original domains is \[
+ u_R^t(r)=\widehat u_R(r+t),\quad u_C^t=u_C,\quad u_D^t(d)=\widehat u_D(d+t),\quad
+ u_A^t(s)=\widehat u_A(s+t),\qquad v^t=\log u^t .
+\]
+
+\begin{lema}[Translation residual]\label{lem:residuo} With $\eta^t=\cG_\lambda(v^t)$, we have $\eta^t_R=0$,
+$|\eta^t_C|,|\eta^t_D|,|\eta^t_A|\le2\lambda|t|$, and $\|\eta^t\|_\cH\le2\sqrt5\,\lambda|t|$. Consequently,
+$\|v^t-v\|_\cH\le2\sqrt5\,\lambda(1+\lambda)|t|$. \end{lema}
+
+\begin{proof} The first equality is the definition of $\widehat u_R$. In a column $c$, substitute $r'=r+t$ in the integral of
+$u_R^t(r)\,u_D^t(r-c)\,u_A^t(r+c)$. The integrands agree with the original ones where the two domains overlap, and $r'\in[0,1]$ is
+replaced by $r'\in[t,1+t]$, with the symmetric difference having length at most $2|t|$. The products of vacancies have absolute value
+at most one. On the diagonal $d$, the same substitution gives $c=r'-(d+t)$ and the integrand is $\widehat u_R(r')\,u_C(c)\,\widehat
+u_A(2r'-(d+t))$. The translated domain requires $r'\in[t,1+t]$ and $c\in[0,1]$, and the original domain of the diagonal $d+t$ requires
+$r'\in[0,1]$ and $c\in[0,1]$, so their difference lies in the same two strips. If $d+t\notin I_D$, the original fiber is empty and
+$\widehat u_D(d+t)=1$, and the argument still applies. For $A$ use $c=s+t-r'$. The residual is $\lambda u^t_f$ times the difference of
+the two integrals, and its absolute value is at most $2\lambda|t|$. The domains of $C$, $D$, and $A$ have lengths $1$, $2$, and $2$,
+respectively, giving the bound in $\cH$. The last inequality follows from Lemma~\ref{lem:estabilidad} with $\kappa'=\kappa_\lambda$.
+\end{proof}
+
+For translations in the second coordinate, interchange $R$ and $C$. Define $\widehat u_C$ by its equation and compare $u_R(r)$,
+$\widehat u_C(c+t)$, $\widehat u_D(d-t)$, and $\widehat u_A(s+t)$. Component $C$ of the residual vanishes, and the other three satisfy
+the same bounds.
+
+To pass from $L^2$ to pointwise differences, suppose that $u=e^v$ and $\widetilde u=e^{\widetilde v}$ take values in $[0,1]$.
+Telescoping the product of three factors on a fiber gives \begin{equation}\label{eq:conversion}
+ |J_f(\widetilde u)-J_f(u)|\le\sum_{g\ne f}\|\widetilde u_g-u_g\|_{L^2(I_g)}\le\sqrt3\,\|\widetilde v-v\|_\cH ,
+\end{equation} because on a fiber of $f$ the parameter $\ell_g$, $g\ne f$, varies with slope of absolute value one or two (never zero).
+Cauchy--Schwarz and the parameter length $\le1$ give the first inequality, and $|e^\alpha-e^\beta|\le|\alpha-\beta|$ for
+$\alpha,\beta\le0$ gives the second. For the translated field, $u^t_f(1+\lambda J_f(u^t))=1+\eta^t_f$. Comparing with $u_f(1+\lambda
+J_f(u))=1$, using the bounds $\ge1$ on the denominators, Lemma~\ref{lem:residuo}, and~\eqref{eq:conversion}, we obtain
+\begin{equation}\label{eq:traslacion}
+ |u^t_f-u_f|\le2\lambda|t|+2\sqrt{15}\,\lambda^2(1+\lambda)|t|\le L(\lambda)|t|,\qquad
+ L(\lambda)=2\lambda+8\lambda^2(1+\lambda).
+\end{equation} Translation in the row coordinate controls $R$, $D$, and $A$, and translation in the column coordinate controls $C$.
