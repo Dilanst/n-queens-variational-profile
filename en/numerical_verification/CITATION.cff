@@ -20,4 +20,5 @@ references:
       - family-names: "Mejia"
         given-names: "Dilan Steven"
     year: 2026
+    doi: "10.5281/zenodo.24220042"
     url: "https://github.com/Dilanst/n-queens-variational-profile"

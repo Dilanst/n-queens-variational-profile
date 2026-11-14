@@ -3,7 +3,7 @@
 These programs reproduce the numerical values of two papers:
 
 - **[A]** D. S. Mejia, *Completability of the final layers in the n-queens problem*, 2026. Repository: [n-queens-last-layers](https://github.com/Dilanst/n-queens-last-layers).
-- **[P]** D. S. Mejia, *The variational profile of partial queen placements: existence, Euler equations, and regularity up to the full board*, 2026. Repository: [n-queens-variational-profile](https://github.com/Dilanst/n-queens-variational-profile).
+- **[P]** D. S. Mejia, *The variational profile of partial queen placements: existence, Euler equations, and regularity up to the full board*, 2026. DOI: [10.5281/zenodo.24220042](https://doi.org/10.5281/zenodo.24220042). Repository: [n-queens-variational-profile](https://github.com/Dilanst/n-queens-variational-profile).
 
 ## How to reproduce them
 

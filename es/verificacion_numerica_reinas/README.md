@@ -3,7 +3,7 @@
 Estos programas reproducen los valores numéricos de dos artículos:
 
 - **[A]** D. S. Mejia, *Completabilidad de las últimas capas en el problema de las n reinas*, 2026. Repositorio: [n-queens-last-layers](https://github.com/Dilanst/n-queens-last-layers).
-- **[P]** D. S. Mejia, *El perfil variacional de las colocaciones parciales de reinas: existencia, ecuaciones de Euler y regularidad hasta el tablero lleno*, 2026. Repositorio: [n-queens-variational-profile](https://github.com/Dilanst/n-queens-variational-profile).
+- **[P]** D. S. Mejia, *El perfil variacional de las colocaciones parciales de reinas: existencia, ecuaciones de Euler y regularidad hasta el tablero lleno*, 2026. DOI: [10.5281/zenodo.24220042](https://doi.org/10.5281/zenodo.24220042). Repositorio: [n-queens-variational-profile](https://github.com/Dilanst/n-queens-variational-profile).
 
 ## Cómo reproducirlos
 
