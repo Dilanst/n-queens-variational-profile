@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Si usas este código, cita los artículos [A] y [P] y este repositorio."
+message: "Si usas este código, cita este repositorio y los dos artículos cuyos valores reproduce."
 title: "Verificación numérica: últimas capas y perfil variacional del problema de las n reinas"
 version: "1.0.0"
 license: MIT
@@ -13,9 +13,11 @@ references:
       - family-names: "Mejia"
         given-names: "Dilan Steven"
     year: 2026
+    url: "https://github.com/Dilanst/n-queens-last-layers"
   - type: article
     title: "El perfil variacional de las colocaciones parciales de reinas: existencia, ecuaciones de Euler y regularidad hasta el tablero lleno"
     authors:
       - family-names: "Mejia"
         given-names: "Dilan Steven"
     year: 2026
+    url: "https://github.com/Dilanst/n-queens-variational-profile"

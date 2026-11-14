@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# Reproduce los valores numéricos de [A] y [P].
-#   bash reproducir.sh          todo (unos 5 minutos)
-#   bash reproducir.sh rapido   comprobación corta (n = 10..13 y mallas 64 y 128; unos 15 segundos)
+# Reproduce los valores numéricos de [A] y [P]; las referencias están en el README.
+#   bash reproducir.sh          todo (unos 4 minutos y medio)
+#   bash reproducir.sh rapido   comprobación corta: n = 10..13 y mallas de 64 y 128 puntos
+#                               (unos 15 segundos)
 set -euo pipefail
 cd "$(dirname "$0")"
 modo="${1:-completo}"
@@ -11,7 +12,11 @@ cd conteos
 cc -O2 -o conteo_capas conteo_capas.c
 python3 fuerza_bruta.py > fuerza_bruta.txt
 for n in 4 5 6; do for h in 0 1 2; do ./conteo_capas $n $h; done; done > contador_pequeno.txt
-diff fuerza_bruta.txt contador_pequeno.txt > /dev/null && echo "Contador = fuerza bruta para n = 4, 5, 6."
+if diff fuerza_bruta.txt contador_pequeno.txt > /dev/null; then
+  echo "El contador coincide con la fuerza bruta para n = 4, 5, 6."
+else
+  echo "ATENCIÓN: el contador no coincide con la fuerza bruta."; exit 1
+fi
 if [ "$modo" = "rapido" ]; then tamanos="10 11 12 13"; else tamanos="10 11 12 13 14 15"; fi
 : > conteos_nuevos.txt
 for n in $tamanos; do for h in 0 1 2; do ./conteo_capas $n $h >> conteos_nuevos.txt; done; done

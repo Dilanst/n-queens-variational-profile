@@ -1,39 +1,53 @@
-# Verificación numérica: últimas capas y perfil variacional del problema de las n reinas
+# Verificación numérica
 
-Programas que reproducen los valores numéricos de dos artículos:
+Estos programas reproducen los valores numéricos de dos artículos:
 
-- **[A]** D. S. Mejia, *Completabilidad de las últimas capas en el problema de las n reinas*, 2026.
-- **[P]** D. S. Mejia, *El perfil variacional de las colocaciones parciales de reinas: existencia, ecuaciones de Euler y regularidad hasta el tablero lleno*, 2026.
+- **[A]** D. S. Mejia, *Completabilidad de las últimas capas en el problema de las n reinas*, 2026. Repositorio: [n-queens-last-layers](https://github.com/Dilanst/n-queens-last-layers).
+- **[P]** D. S. Mejia, *El perfil variacional de las colocaciones parciales de reinas: existencia, ecuaciones de Euler y regularidad hasta el tablero lleno*, 2026. Repositorio: [n-queens-variational-profile](https://github.com/Dilanst/n-queens-variational-profile).
 
-Los programas son deterministas: no hacen muestreo ni necesitan GPU. Se escribieron a partir de las definiciones de los artículos.
+## Cómo reproducirlos
 
-> **English summary.** This repository reproduces the numerical values reported in [A] and [P]:
-> - exhaustive counts of partial n-queens placements, which give Table 1 of [A];
-> - a deterministic solver for the discretized Euler equations of the variational profile, which gives the values in Section 9 of [P].
->
-> Run `bash reproducir.sh` (C compiler, Python 3 and NumPy required).
-
-## Reproducir todo
+Hace falta un compilador de C (gcc o clang) y Python 3 con NumPy (`pip install -r requirements.txt`). Desde esta carpeta:
 
 ```
-bash reproducir.sh          # todo, unos 5 minutos
+bash reproducir.sh          # todo, unos 4 minutos y medio
 bash reproducir.sh rapido   # comprobación corta, unos 15 segundos
 ```
 
-Requisitos: un compilador de C (gcc o clang) y Python 3 con NumPy (`pip install -r requirements.txt`).
+El guion compila el contador y lo contrasta con una búsqueda por fuerza bruta. Después recalcula los conteos y los compara con los guardados; si algo no coincide, lo avisa y se detiene. Por último resuelve el perfil e imprime sus valores.
+
+## Equipo y tiempos
+
+Los tiempos de esta sección se midieron en este equipo:
+
+- Ubuntu 24.04 (Linux)
+- Procesador Intel Xeon a 2,1 GHz, con 2 núcleos
+- 8 GB de RAM
+- GCC 13.3, Python 3.13 y NumPy 2.5
+
+Los programas no trabajan en paralelo: cada uno usa un solo núcleo.
+
+| Paso | Tiempo |
+|---|---|
+| Compilar el contador y compararlo con la fuerza bruta | 1 s |
+| Conteos para n = 10, …, 15 | 3 min 34 s, de los que n = 15, h = 2 se lleva 2 min 37 s |
+| Perfil en las mallas de 64, 128 y 256 puntos | 54 s, de los que la malla de 256 se lleva 43 s |
+| Total (`bash reproducir.sh`) | Unos 4 min 30 s |
+
+Los resultados que se obtienen son idénticos, byte a byte, a los archivos guardados.
 
 ## 1. Conteos exactos (Tabla 1 de [A])
 
 - **N_h(n)** es el número de colocaciones de n − h reinas que no se atacan en el tablero n × n.
-- **f_h(n) = (n − h + 1) N_{h−1}(n) / (h² N_h(n))** es la ecuación (1.1) de [A].
+- **f_h(n) = (n − h + 1) N_{h−1}(n) / (h² N_h(n))** es la fracción de la ecuación (1.1) de [A].
 
 | Archivo | Contenido |
 |---|---|
-| `conteos/conteo_capas.c` | Enumeración completa por filas con máscaras de bits. Uso: `./conteo_capas n h` |
-| `conteos/fuerza_bruta.py` | Control independiente para n = 4, 5, 6: prueba todos los subconjuntos de casillas |
-| `conteos/tabla1.py` | Fracciones exactas f_h(n), redondeo a seis decimales y comparación con la Tabla 1 de [A] |
+| `conteos/conteo_capas.c` | Contador: recorre todas las colocaciones fila a fila. Uso: `./conteo_capas n h` |
+| `conteos/fuerza_bruta.py` | Control para n = 4, 5, 6: prueba todos los subconjuntos de casillas |
+| `conteos/tabla1.py` | Calcula f_h(n) como fracción exacta, la redondea a seis decimales y la compara con la Tabla 1 de [A] |
 | `conteos/conteos.txt` | N₀, N₁ y N₂ para n = 10, …, 15 |
-| `conteos/tabla1_salida.csv` | Salida de `tabla1.py` |
+| `conteos/tabla1_salida.csv` | Lo que escribe `tabla1.py` |
 
 | n | N₀ | N₁ | N₂ | f₁(n) | f₂(n) |
 |---|---|---|---|---|---|
@@ -44,15 +58,11 @@ Requisitos: un compilador de C (gcc o clang) y Python 3 con NumPy (`pip install 
 | 14 | 365 596 | 46 788 624 | 960 059 292 | 639793/5848578 ≈ 0,109393 | 745407/4706173 ≈ 0,158389 |
 | 15 | 2 279 184 | 299 307 416 | 6 849 285 616 | 4273470/37413427 ≈ 0,114223 | 261893989/1712321404 ≈ 0,152947 |
 
-- **Comprobaciones.**
-  - Las 12 entradas de la Tabla 1 de [A] coinciden con estos redondeos.
-  - N₀ es el número de soluciones de n reinas.
-  - Para n = 4, 5, 6 el contador coincide con la fuerza bruta.
-- **Tiempo.** El cálculo completo tarda unos 3,5 minutos en un núcleo; casi todo se va en n = 15, h = 2.
+Las 12 fracciones redondeadas coinciden con la Tabla 1 de [A]. N₀ es el número de soluciones del problema de las n reinas, y para n = 4, 5 y 6 el contador da lo mismo que la fuerza bruta.
 
-## 2. Perfil variacional (Sección 9 de [P]; último valor de la Tabla 1 de [A])
+## 2. Perfil variacional (Sección 9 de [P] y último valor de la Tabla 1 de [A])
 
-**Discretización.** Se toma una malla de N × N casillas. Para cada masa 1 − x se resuelve el sistema de Euler reescalado discreto:
+`perfil/perfil.py` toma una malla de N × N casillas y, para cada masa 1 − x, resuelve el sistema de Euler reescalado en su versión discreta:
 
 - ν_ij = b r(i) r(j) u(i − j) u(i + j − N + 1);
 - r = 1/(x + bK) y u = 1/(1 + bJ);
@@ -60,16 +70,12 @@ Requisitos: un compilador de C (gcc o clang) y Python 3 con NumPy (`pip install 
 
 Aquí K y J son las integrales de fibra discretas, y **F(x) = (1 − x)/b**.
 
-Por simetría coinciden los perfiles de filas y columnas, y también las dos familias diagonales. El programa impone esa simetría y comprueba al final las cuatro ecuaciones sin ella. Todos los residuos son menores que 10⁻¹³.
+Los perfiles de filas y de columnas coinciden por simetría, y también los de las dos familias de diagonales. El programa usa esa simetría y al final comprueba las cuatro ecuaciones sin ella; todos los residuos quedan por debajo de 10⁻¹³.
 
-**Método.**
-- **Sistema:** iteración de punto fijo en doble precisión.
-- **F′(0):** diferencia centrada con paso 10⁻⁴.
-- **∫₀¹ log F:** regla de Simpson con paso 0,005.
-- **s_N:** valor discreto del funcional en masa uno.
+El sistema se resuelve por iteración de punto fijo en doble precisión. F′(0) se obtiene con una diferencia centrada de paso 10⁻⁴, ∫₀¹ log F con la regla de Simpson de paso 0,005, y s_N es el valor del funcional discreto en masa uno.
 
 ```
-python3 perfil/perfil.py               # mallas 64, 128 y 256, alrededor de un minuto
+python3 perfil/perfil.py    # mallas de 64, 128 y 256 puntos
 ```
 
 | Malla | F(0) | F′(0) | ∫₀¹ log F | s_N en masa uno |
@@ -79,22 +85,20 @@ python3 perfil/perfil.py               # mallas 64, 128 y 256, alrededor de un m
 | 256 | 0,08091137290 | 0,5157663798 | −0,9440110655 | −1,9440110647 |
 | Richardson (128, 256) | 0,0809141902 | 0,51577026 | −0,944001023 | −1,944001022 |
 
-**Comparación con [P].**
-- **F(0).** Coincide en las once cifras decimales en las tres mallas.
-- **F′(0).** Difiere en 5·10⁻⁹, porque [P] usa diferenciación implícita.
-- **∫₀¹ log F.** Difiere en 7·10⁻⁹, por la cuadratura en x.
-- **Extrapolaciones.** Coinciden con las que imprime [P]: 0,080914; 0,515770; −0,944001.
+Comparación con [P]:
 
-**Dos comprobaciones más.**
-- **Identidad ∫₀¹ log F = 1 + s*(1).** El valor del funcional en masa uno, calculado directamente, coincide con ∫₀¹ log F − 1 hasta 10⁻⁹, como afirma esa identidad de [P].
-- **Comparación con Nobel–Agrawal–Boyd.** El valor extrapolado, −s*(1) ≈ 1,944001022, está dentro del intervalo [1,944000752; 1,944001082] de P. Nobel, A. Agrawal y S. Boyd, *Computing tighter bounds on the n-queens constant via Newton's method*, Optim. Lett. 17 (2023) 1229–1240.
+- **F(0)** coincide en las once cifras decimales en las tres mallas.
+- **F′(0)** difiere en 5·10⁻⁹, porque [P] la calcula por diferenciación implícita.
+- **∫₀¹ log F** difiere en 7·10⁻⁹, por la cuadratura en x.
+- **Las extrapolaciones** coinciden con las que imprime [P]: 0,080914; 0,515770; −0,944001.
 
-Son valores numéricos, sin certificación por intervalos.
+Dos comprobaciones más:
 
-## Entorno de referencia
+- **La identidad ∫₀¹ log F = 1 + s*(1) de [P].** El valor del funcional en masa uno, calculado directamente, coincide con ∫₀¹ log F − 1 hasta 10⁻⁹.
+- **El intervalo de Nobel, Agrawal y Boyd.** El valor extrapolado, −s*(1) ≈ 1,944001022, cae dentro del intervalo [1,944000752; 1,944001082] que dan P. Nobel, A. Agrawal y S. Boyd en *Computing tighter bounds on the n-queens constant via Newton's method*, Optim. Lett. 17 (2023) 1229–1240.
 
-Python 3.13, NumPy 2.5 y GCC 13 en Linux.
+Son valores numéricos: no llevan una cota de error certificada.
 
 ## Licencia
 
-MIT (ver `LICENSE`).
+[MIT](LICENSE).

@@ -1,7 +1,7 @@
-"""Verificación numérica independiente del perfil variacional.
+"""Perfil variacional discreto.
 
-Reproduce los valores numéricos de [P] (tabla de la Sección 9: F(0), F'(0) e integral de log F)
-y el valor F(0) de la Tabla 1 de [A]. Las referencias [A] y [P] están en el README.
+Reproduce los valores de la tabla de la Sección 9 de [P] (F(0), F'(0) y la integral de log F)
+y el valor de F(0) de la Tabla 1 de [A]. Las referencias [A] y [P] están en el README.
 
 Discretización: malla de N x N casillas. En masa 1 - x se resuelve el sistema de Euler reescalado
     nu_ij = b r(i) r(j) u(i-j) u(i+j-N+1),
@@ -12,8 +12,8 @@ Por la simetría del problema, el perfil de filas y el de columnas coinciden, y 
 familias diagonales; el programa lo impone y comprueba al final que las cuatro ecuaciones se cumplen
 sin esa simetría. En x = 0 calcula también el valor discreto del funcional s_N.
 
-Iteración de punto fijo determinista en doble precisión: sin muestreo ni GPU.
-Uso:  python perfil.py            (tabla completa, mallas 64, 128 y 256)
+El sistema se resuelve por iteración de punto fijo en doble precisión.
+Uso:  python perfil.py            (mallas de 64, 128 y 256 puntos)
       python perfil.py 64 128     (sólo esas mallas)
 """
 import sys

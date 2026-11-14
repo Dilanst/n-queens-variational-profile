@@ -1,9 +1,9 @@
-/* conteo_capas.c — cuenta N_h(n): colocaciones de exactamente n-h reinas que no se atacan
+/* conteo_capas.c: cuenta N_h(n), el número de colocaciones de n-h reinas que no se atacan
    en el tablero n x n ([A], ecuación (1.1) y Tabla 1).
 
-   Búsqueda exhaustiva por filas con máscaras de bits: cada fila recibe una reina o queda
-   vacía, con exactamente h filas vacías en total. Las diagonales se propagan también a
-   través de las filas vacías. No usa ningún método especial: es enumeración completa.
+   Recorre el tablero fila a fila con máscaras de bits: cada fila recibe una reina o queda
+   vacía, hasta dejar exactamente h filas vacías. Las diagonales ocupadas siguen avanzando
+   también al pasar por una fila vacía.
 
    Compilar:  cc -O2 -o conteo_capas conteo_capas.c
    Uso:       ./conteo_capas n h        (n <= 32)

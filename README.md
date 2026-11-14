@@ -1,10 +1,13 @@
 # El perfil variacional de las colocaciones parciales de reinas
 
-Existencia, ecuaciones de Euler y regularidad hasta el tablero lleno.
+*Existencia, ecuaciones de Euler y regularidad hasta el tablero lleno*
 
 Dilan Steven Mejia
 
-- `es/`: versión en español.
-  - `articulo/`: fuentes LaTeX (XeLaTeX) y PDF.
-  - `verificacion_numerica_reinas/`: programas que reproducen los valores numéricos.
-- `en/`: versión en inglés.
+Este repositorio reúne el artículo y los programas de verificación numérica.
+
+| Carpeta | Contenido |
+|---|---|
+| `es/articulo/` | El artículo en español: fuentes LaTeX, que se compilan con XeLaTeX, y el PDF |
+| `es/verificacion_numerica_reinas/` | Los programas que reproducen los valores de la Sección 9 |
+| `en/` | La versión en inglés, en preparación |
